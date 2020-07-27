@@ -1,0 +1,43 @@
+package by.jonline.arrayofarrays2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дана квадратная матрица. Вывести элементы, стоящие на диагонали
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+      
+        System.out.println("Enter amount of rows and columns: ");
+        int size = console.nextInt();
+        
+        int[][] matrix =new int[size][size];
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.print("Enter " + (i+1) + " row: ");
+            
+            for(int j=0; j<size; j++){
+            
+                matrix[i][j] = console.nextInt();
+                
+            }
+        }
+        
+        System.out.print("Diagonal elements: ");
+        
+        for(int i=0; i<size; i++){
+        
+            for(int j=0; j<size; j++){
+            
+                if(i==j){
+                
+                    System.out.print(matrix[i][j] + " ");
+                    
+                }
+            }
+        }
+    }
+}
