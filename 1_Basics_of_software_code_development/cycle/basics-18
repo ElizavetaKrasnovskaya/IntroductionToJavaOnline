@@ -1,0 +1,36 @@
+package by.jonline.basics18.main;
+
+import java.util.Scanner;
+
+public class Main{
+
+    // Для каждого натурального числа в промежутке от m до n вывести все делители, кроме единицы и самого числа.
+    // m и n вводятся с клавиатуры
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter m: ");
+        int m = console.nextInt();
+        
+        System.out.println("Enter n: ");
+        int n = console.nextInt();
+        
+        while (m<=n){
+        
+            for(int i = 2; i<m; i++){
+            
+                if(m % i == 0){
+                
+                    System.out.println(m + " is divided by " + i);
+                    
+                }
+                
+            }
+            
+            m++;
+            
+        }
+    }
+}
