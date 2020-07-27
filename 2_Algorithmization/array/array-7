@@ -1,0 +1,46 @@
+package by.jonline.array7.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Даны действительные числа a1, a2, ... ,an. Найти max(a1+a2n, a2+a2n-1,...)
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of numbers: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter numbers: ");
+        double[] array = new double[size];
+        
+        for(int i=0; i<size; i++){
+        
+            array[i] = console.nextDouble();
+            
+        }
+        
+        double[] newArray = new double[size/2];
+        
+        for(int i=0; i<size/2; i++){
+        
+            newArray[i] = array[i] + array[size-1-i];
+            
+        }
+        
+        double max = newArray[0];
+        
+        for(int i=1; i < newArray.length; i++){
+        
+            if(newArray[i]>max){
+            
+                max = newArray[i];
+                
+            }
+        }
+        
+        System.out.println("max(a1+a2n, a2+a2n-1,...) is " + max);
+    }
+}
