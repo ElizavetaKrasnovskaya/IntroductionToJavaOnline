@@ -1,0 +1,104 @@
+package by.jonline.arrayofarrays13.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Отсортировать строки матрицы по возрастанию и по убыванию значений элементов.
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of rows: ");
+        int row = console.nextInt();
+        
+        System.out.println("Enter amount of columns: ");
+        int col = console.nextInt();
+        
+        int[][] matrix = new int[row][col];
+        
+        for(int i=0; i<row; i++){
+        
+            for(int j=0; j<col; j++){
+            
+                System.out.print("Enter element of " + i + " row and " + j + " column: ");
+                
+                matrix[i][j] = console.nextInt();
+                
+            }
+            
+            System.out.println();
+            
+        }
+        
+        sortAscending(matrix, row, col);
+        System.out.println();
+        sortDescending(matrix, row, col);
+        
+    }
+
+    public static void sortAscending(int[][]matrix, int row, int col) {
+    
+        int temp;
+        
+        for(int i=row-1; i>=0; i--){
+        
+            for(int j=col-1; j>=0; j--){
+            
+                for(int k=0; k<i; k++){
+                
+                    if(matrix[k][j]>matrix[k+1][j]){
+                    
+                        temp = matrix[k][j];
+                        matrix[k][j]=matrix[k+1][j];
+                        matrix[k+1][j]=temp;
+                        
+                    }
+                }
+            }
+        }
+        
+        printArray(matrix, row, col);
+    }
+    
+    public static void sortDescending(int[][]matrix, int row, int col) {
+    
+        int temp;
+        
+        for(int i=row-1; i>=0; i--){
+        
+            for(int j=col-1; j>=0; j--){
+            
+                for(int k=0; k<i; k++){
+                
+                    if(matrix[k][j]<matrix[k+1][j]){
+                    
+                        temp = matrix[k][j];
+                        matrix[k][j]=matrix[k+1][j];
+                        matrix[k+1][j]=temp;
+                        
+                    }
+                }
+            }
+        }
+        
+        printArray(matrix, row, col);
+        
+    }
+
+    public static void printArray(int[][] matrix, int row, int col) {
+    
+        for(int i=0; i<row; i++){
+        
+            for(int j=0; j<col;j++){
+            
+                System.out.print(matrix[i][j] + "\t");
+                
+            }
+            
+            System.out.println();
+            
+        }
+    }
+}
