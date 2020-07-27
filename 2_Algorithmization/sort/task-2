@@ -1,0 +1,60 @@
+package by.jonline.sort2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+      
+        System.out.println("Enter size of first array: ");
+        int size1 = console.nextInt();
+        
+        System.out.println("Enter size of second array: ");
+        int size2 = console.nextInt();
+        
+        int size = size1 + size2;
+        
+        int[] array = new int[size];
+        
+        for(int i=0; i<size1; i++){
+        
+            System.out.print("Enter " + (i+1) + " element of first array: ");
+            array[i] = console.nextInt();
+            System.out.println();
+        }
+        int j=1;
+        for(int i=size1; i<size; i++){
+        
+            System.out.print("Enter " + j + " element of second array: ");
+            array[i] = console.nextInt();
+            
+            System.out.println();
+            j++;
+            
+        }
+        
+        int temp;
+        
+        for(int i=array.length-1; i>0; i--){
+        
+            for(int k=0; k<i; k++){
+            
+                if(array[k]>array[k+1]) {
+                
+                    temp = array[k];
+                    array[k] = array[k + 1];
+                    array[k+1] = temp;
+                    
+                }
+            }
+        }
+
+        for(int i=0; i<size; i++){
+        
+            System.out.print(array[i] + "\t");
+            
+        }
+    }
+}
