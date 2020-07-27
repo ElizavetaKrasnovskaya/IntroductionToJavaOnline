@@ -1,0 +1,48 @@
+package by.jonline.arrayofarrays1.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дана матрица. Вывести на экран все нечетные столбцыц, у которых первый элемент больше последнего
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of rows: ");
+        int row = console.nextInt();
+        
+        System.out.println("Enter amount of columns: ");
+        int col = console.nextInt();
+        
+        System.out.println("Enter elements of matrix: ");
+        int[][] matrix = new int[row][col];
+        
+        for(int i =0; i<row; i++){
+        
+            for(int j=0; j<col; j++){
+            
+                matrix[i][j] = console.nextInt();
+                
+            }
+        }
+        
+        System.out.print("Odd columns with the first element larger than the last: ");
+        
+        for(int i=0; i<row; i++){
+        
+            for(int j=0; j<col; j++){
+            
+                if((i%2)!=0){
+                
+                    if(matrix[1][i]>matrix[row-1][i]){
+                    
+                        System.out.print(matrix[i][j] + " ");
+                        
+                    }
+                }
+            }
+        }
+    }
+}
