@@ -1,0 +1,36 @@
+package by.jonline.basics13.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Вычислите значение функции на отрезке [a,b] с шагом h:
+    // если x>2, то y=x
+    // если x<=2, то y=-x
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+      
+        System.out.println("Enter segment [a,b] and step h: ");
+        int a = console.nextInt();
+        int b = console.nextInt();
+        int h = console.nextInt();
+        int y=0;
+        
+        for(int i=a; i<=b; i+=h){
+        
+            if(i>2){
+            
+                y=i;
+                System.out.println("The value of the function at x = " + i + " is " + y);
+                
+            }else{
+            
+                y=-i;
+                System.out.println("The value of the function at x = " + i + " is " + y);
+                
+            }
+        }
+    }
+}
