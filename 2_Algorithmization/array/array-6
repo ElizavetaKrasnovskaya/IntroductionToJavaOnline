@@ -1,0 +1,49 @@
+package by.jonline.array6.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Задана последовательность N вещестсвенных чисел.
+    // Вычислить сумму чисел, порядковые номера которых являются простыми числами.
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+      
+	      double sum = 0;
+	      boolean isComposite = false;
+        
+        System.out.println("Enter amount of numbers: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter numbers: ");
+        double[] array = new double[size];
+        
+        for(int i=0; i<size; i++) {
+        
+            array[i] = console.nextDouble();
+            
+        }
+        for(int i = 2; i< size; i++){
+        
+            for(int n = 2; n<i; n++) {
+            
+                if (i % n == 0) {
+                
+                    isComposite = true;
+                    
+                }
+            }
+            
+            if(isComposite == false){
+            
+                sum +=array[i];
+                
+            }
+        }
+        
+        System.out.println("The sum of the numbers whose sequence numbers are prime is "+ sum);
+
+    }
+}
