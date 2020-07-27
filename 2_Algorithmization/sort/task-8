@@ -1,0 +1,62 @@
+package by.jonline.sort8.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console =new Scanner(System.in);
+        
+        System.out.println("Enter amount of fractions: ");
+        int size = console.nextInt();
+        
+        int[] numerator = new int[size];
+        int[] denominator = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.println("Enter numerator of " + (i+1) + " fraction: ");
+            numerator[i] = console.nextInt();
+            
+            System.out.println("Enter denominator of " + (i+1) + " fraction: ");
+            denominator [i] = console.nextInt();
+            
+            if(denominator[i] == 0){
+            
+                System.out.println("Enter another denominator, you can't divided by 0: ");
+                denominator [i] = console.nextInt();
+                
+            }
+        }
+        
+        commonDenominator(denominator, size);
+        newNumerator(numerator, denominator, size, commonDenominator(denominator,size));
+        
+    }
+
+    public static int commonDenominator(int[] denominator, int size) {
+    
+        int commonDenominator = 1;
+        
+        for(int i=0; i<size; i++){
+        
+            commonDenominator *= denominator[i];
+            
+        }
+        
+        return commonDenominator;
+        
+    }
+
+    public static void newNumerator (int[] numerator, int[] denominator,int size, int commonDenominator){
+    
+        for(int i=0; i<size; i++){
+        
+            numerator[i] *= commonDenominator/denominator[i];
+            
+            System.out.print(numerator[i] + "/" + commonDenominator + "\t");
+            
+        }
+    }
+}
