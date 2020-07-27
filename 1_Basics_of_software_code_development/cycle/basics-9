@@ -1,0 +1,35 @@
+package by.jonline.basics9.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Даны три точки A(x1,y1), B(x2,y2) и C(x3,y3). Определить, будут ли они расположены на одной прямой.
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter the coordinates of point A(x1,y1)");
+        int x1 = console.nextInt();
+        int y1 = console.nextInt();
+        
+        System.out.println("Enter the coordinates of point B(x2,y2)");
+        int x2 = console.nextInt();
+        int y2 = console.nextInt();
+        
+        System.out.println("Enter the coordinates of point C(x3,y3)");
+        int x3 = console.nextInt();
+        int y3 = console.nextInt();
+        
+        if(((x3-x1)/(x2-x1)) == ((y3-y1)/(y2-y1))){
+        
+            System.out.println("These points lie on one straight line");
+            
+        }else{
+        
+            System.out.println("These points don't lie on one straight line");
+            
+        }
+    }
+}
