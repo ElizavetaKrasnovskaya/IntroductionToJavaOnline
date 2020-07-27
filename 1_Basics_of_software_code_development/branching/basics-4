@@ -8,7 +8,7 @@ public class Main {
     // Поменять местами дробную и целую части числа и вывести полученное значение числа.
     
     public static void main(String[] args) {
-    
+   
         Scanner console = new Scanner(System.in);
         
         System.out.println("Enter a number R of type nnn.ddd");
