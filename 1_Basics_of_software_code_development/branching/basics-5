@@ -1,0 +1,33 @@
+package by.jonline.basics5.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дано натуральное число T, которое представляет длительность прошедшего времени в секундах.
+    // Вывести данное значение длительности в часах, минутах и секундах в следующей форме (ННч ММмин SSс)
+    
+    public static void main(String[] args) {
+    
+        final int amountInHour = 3600;
+        final int amountInMin = 60;
+        
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter T (elapsed time in seconds)");
+        int T = console.nextInt();
+        
+        int hour;
+        hour= T/amountInHour;
+        T-=hour*amountInHour;
+        
+        int min;
+        min = T/amountInMin;
+        T -= min*amountInMin;
+        
+        int sec;
+        sec = T;
+        
+        System.out.println(hour + " ч " + min + " мин " + sec + " с ");
+    }
+}
