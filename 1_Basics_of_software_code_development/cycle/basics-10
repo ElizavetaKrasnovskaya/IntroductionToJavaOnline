@@ -1,0 +1,32 @@
+package by.jonline.basics10.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Заданы размеры A, B прямоугольного отверстия и размеры x, y, z кирпича. Определить, пройдет ли кирпич через отверстие.
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter hole dimensions A and B: ");
+        int A = console.nextInt();
+        int B = console.nextInt();
+        
+        System.out.println("Enter brick size x, y and z: ");
+        int x = console.nextInt();
+        int y = console.nextInt();
+        int z = console.nextInt();
+        
+        if(A>=x & B>=y | A>=y & B>=x | A>=z & B>=x | A>=x & B>=z | A>=y & B>=z | A>=z & B>=y){
+        
+            System.out.println("The brick will go through the hole");
+            
+        }else{
+        
+            System.out.println("The brick wouldn't go through the hole");
+            
+        }
+    }
+}
