@@ -1,0 +1,51 @@
+package by.jonline.sort4.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        int[] array = new int[size];
+        
+        int counter = 0;
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.println("Enter " + i + " element of array");
+            array[i] = console.nextInt();
+            
+        }
+        
+        for(int i=array.length-1; i>0; i--){
+        
+            for(int k=0; k<i; k++){
+            
+                if(array[k]>array[k+1]) {
+                
+                    int temp;
+                    temp = array[k];
+                    array[k] = array[k + 1];
+                    array[k+1] = temp;
+                    counter++;
+                    
+                }
+            }
+        }
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.print(array[i] + "\t");
+            
+        }
+        
+        System.out.println();
+        System.out.println("The number of permutations is " + counter);
+        
+    }
+}
