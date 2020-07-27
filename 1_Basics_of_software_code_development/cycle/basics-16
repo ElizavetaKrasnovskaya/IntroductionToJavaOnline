@@ -1,0 +1,43 @@
+package by.jonline.basics16.main;
+
+import java.util.Scanner;
+import java.lang.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        System.out.println("Enter e: ");
+        double e = console.nextDouble();
+        
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        int[] array = new int [size];
+        
+        System.out.println("Enter a number array: ");
+        
+        for(int  i=0; i<size; i++){
+        
+            array[i] = console.nextInt();
+            
+        }
+        
+        double[] a = new double[size];
+        double sum = 0;
+        
+        for(int i =0; i<size; i++){
+        
+            a[i] = 1/Math.pow(2, array[i]) + 1/Math.pow(3, array[i]);
+            while(Math.abs(a[i])>=e){
+            
+                sum += a[i];
+                i++;
+                
+            }
+        }
+        
+        System.out.println("The sum of the number array is " + sum);
+    }
+}
