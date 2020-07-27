@@ -1,0 +1,18 @@
+package by.jonline.basics15.main;
+
+public class Main {
+
+    // Составить программу нахождения произведения квадратов первых двухсот чисел
+    
+    public static void main(String[] args) {
+    
+        int result = 1;
+        for(int i =1; i<=200;i++){
+        
+            result *= Math.pow(i,2);
+            
+        }
+        
+        System.out.println("The sum of the squares of the first hundred numbers is " + result);
+    }
+}
