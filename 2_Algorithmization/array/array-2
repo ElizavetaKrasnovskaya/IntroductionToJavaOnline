@@ -1,0 +1,50 @@
+package by.jonline.array2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дана последовательность дейстивтельных чисел. Заменить все ее члены,
+    // большие данного числа Z, этим числом. Подсчитать количество замен.
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        int counter = 0;
+        
+        System.out.println("Enter the number with which the elements of the array will be compared");
+        int number = console.nextInt();
+        
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        int[] array = new int[size];
+        
+        System.out.println("Enter elements of array: ");
+        
+        for(int i = 0; i<size; i++){
+        
+            array[i] = console.nextInt();
+            
+        }
+        
+        System.out.print("Array: ");
+        
+        for(int i=0; i<size; i++){
+        
+            if(array[i] > number){
+            
+                array[i] = number;
+                counter++;
+                
+            }
+            
+            System.out.print(array[i] + " ");
+            
+        }
+        
+        System.out.println(" ");
+        System.out.println("Number of replacements: " + counter);
+    }
+}
