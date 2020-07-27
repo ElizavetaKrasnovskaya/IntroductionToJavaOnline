@@ -1,0 +1,59 @@
+package by.jonline.sort5.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.println("Enter " + (i+1) + " element of array: ");
+            array[i] = console.nextInt();
+            
+        }
+        
+        sortArray(array, size);
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.print(array[i] + "\t");
+            
+        }
+    }
+
+    public static int[] sortArray(int[] array, int size) {
+    
+        for(int i=0; i<size; i++){
+        
+            int value = array[i];
+            int j=i-1;
+            
+            for( ; j>=0; j--){
+            
+                if(value<array[j]){
+                
+                    array[j+1] = array[j];
+                    
+                }else{
+                
+                    break;
+                    
+                }
+            }
+            
+            array[j+1] = value;
+            
+        }
+        
+        return array;
+        
+    }
+}
