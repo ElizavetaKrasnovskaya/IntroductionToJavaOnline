@@ -1,0 +1,61 @@
+package by.jonline.array8.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дана последовательность целых чисел a1, a2, ...
+    // Образовать новую последовательность,выбросив из исходной те члены, которые равны min(a1, a2, ...)
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of numbers: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter numbers: ");
+        int[] array = new int[size];
+        int i;
+        
+        for(i=0; i<size; i++){
+        
+            array[i]=console.nextInt();
+            
+        }
+        
+        int min = array[0];
+        
+        for(i=0; i<size; i++){
+        
+            if(array[i]<min){
+            
+                min = array[i];
+                
+            }
+        }
+        
+        for(i=0; i<size; i++){
+        
+            if(array[i]==min){
+            
+                break;
+                
+            }
+        }
+        
+        for(int k=i; k<size-1; k++){
+        
+            array[k]=array[k+1];
+            
+        }
+        
+        size--;
+        
+        for(i=0; i<size; i++){
+        
+            System.out.print(array[i] + " ");
+            
+        }
+    }
+}
