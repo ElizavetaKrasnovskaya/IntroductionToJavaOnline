@@ -1,0 +1,51 @@
+package by.jonline.arrayofarrays10.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Найдите положительные элементы главной диагонали квадратной матрицы
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of matrix: ");
+        int size = console.nextInt();
+        
+        int[][] matrix = new int[size][size];
+        
+        for(int i=0; i<size; i++){
+        
+            for(int j=0; j<size; j++){
+            
+                System.out.print("Enter element of " + i + " row " + j +" column: ");
+                matrix[i][j] = console.nextInt();
+                
+            }
+            
+            System.out.println();
+            
+        }
+        
+        positiveElements(matrix, size);
+        
+    }
+
+    public static void positiveElements(int[][] matrix, int size) {
+    
+        System.out.print("Positive elements of the main diagonal of a square matrix:  ");
+        
+        for(int i=0; i<size; i++){
+        
+            for(int j=0; j<size; j++){
+            
+                if(i==j & matrix[i][j]>0){
+                
+                    System.out.print(matrix[i][j] + " ");
+                    
+                }
+            }
+        }
+    }
+}
