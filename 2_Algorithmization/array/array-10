@@ -1,0 +1,44 @@
+package by.jonline.array10.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дан целочисленный массив с количеством элементов n.
+    // Сжать массив, выбросив из него каждый второй элемент(освободившиеся элементы заполнить нулями).
+    // ПРИМЕЧАНИЕ: Дополнительный массив не использовать
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter elements of array: ");
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            array[i] = console.nextInt();
+            
+        }
+        
+        for(int i=0; i<size; i++){
+        
+            if((i+1)%2 == 0){
+            
+                array[i]=0;
+                
+            }
+        }
+        
+        System.out.print("New array: ");
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.print(array[i] + " ");
+            
+        }
+    }
+}
