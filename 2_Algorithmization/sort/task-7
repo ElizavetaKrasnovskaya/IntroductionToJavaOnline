@@ -1,0 +1,66 @@
+package by.jonline.sort7.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of sequence A: ");
+        int sizeA = console.nextInt();
+        
+        double[] arrayA = new double[sizeA];
+        
+        for(int i=0; i<sizeA; i++){
+        
+            System.out.println("Enter non-decreasing sequence A: ");
+            arrayA[i] = console.nextDouble();
+            
+        }
+        
+        System.out.println("Enter size of sequence B: ");
+        int sizeB = console.nextInt();
+        
+        double[] arrayB = new double[sizeB];
+        
+        for(int i=0; i<sizeB; i++){
+        
+            System.out.println("Enter non-decreasing sequence B: ");
+            arrayB[i]=console.nextDouble();
+            
+        }
+
+        int index;
+        int counter = 0;
+        
+        for(int i=0; i<sizeB; i++){
+        
+            for(int j=0; j<sizeA; j++){
+            
+                if(arrayB[i]<=arrayA[j]) {
+                
+                    index = j + counter +1;
+                    System.out.println("For element " + arrayB[i] + " the index is " + index);
+                    i++;
+                    j=0;
+                    counter++;
+                    
+                }
+            }
+        }
+        
+        if(sizeA<sizeB){
+        
+            index = 2 * sizeA;
+            
+            for(int i=sizeA; i<sizeB;i++){
+            
+                System.out.println("For element " + arrayB[i] + " the index is " + index);
+                index++;
+                
+            }
+        }
+    }
+}
