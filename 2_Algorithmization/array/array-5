@@ -1,0 +1,36 @@
+package by.jonline.array5.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Даны целые числа. Вывести на печать только те числа, для которых ai>i
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of numbers: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter numbers: ");
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            array[i] = console.nextInt();
+            
+        }
+        
+        System.out.print("Numbers greater than i ");
+        
+        for(int i =0; i<size; i++){
+        
+            if(array[i]>i){
+            
+                System.out.print(array[i] + " ");
+                
+            }
+        }
+    }
+}
