@@ -1,0 +1,47 @@
+package by.jonline.array3.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дан массив действительных чисел, размерность которого N.
+    // Подсчитать, сколько в нем отрицательных,полложительных и нулевых элементов
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+      
+	      int positive = 0;
+	      int negative = 0;
+	      int zero = 0;
+      
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter elements of array: ");
+        double[] array = new double[size];
+        
+        for(int i = 0; i<size; i++){
+        
+            array[i] = console.nextDouble();
+            
+            if(array[i]>0){
+            
+                positive++;
+                
+            }
+            if(array[i]<0){
+            
+                negative++;
+                
+            }else{
+            
+                zero++;
+                
+            }
+        }
+        
+        System.out.println("This array contains " + positive + " positive element, " + negative +
+                " negative element and " + zero + " zero element.");
+    }
+}
