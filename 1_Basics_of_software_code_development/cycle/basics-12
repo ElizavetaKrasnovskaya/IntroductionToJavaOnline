@@ -1,0 +1,26 @@
+package by.jonline.basics12.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Напишите программу, где пользователь вводит любое целое положительное число,
+    // а программа суммирует все числа от 1 до введенного
+    
+    public static void main(String[] args) {
+    
+	Scanner console = new Scanner(System.in);
+	
+        System.out.println("Enter a positive integer: ");
+        int num = console.nextInt();
+        int result;
+        result = 0;
+	
+        for(int i=1; i<=num; i++){
+            result +=i;
+        }
+	
+        System.out.println("The sum of all numbers from 1 to " + num + " is " + result);
+    }
+}
+
