@@ -1,0 +1,42 @@
+package by.jonline.basics19.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Даны два числа. Определить цифры, входящие в запись как первого, так и второго числа.
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter first number: ");
+        int a = console.nextInt();
+        
+        System.out.println("Enter second number: ");
+        int b = console.nextInt();
+        
+        System.out.print("Common in these numbers is the number ");
+        
+        int c, d;
+        
+        while(a>0){
+        
+            d = a % 10;
+            a = a / 10;
+            c = b;
+            
+            while (c>0){
+            
+                if(c%10 == d){
+                
+                    System.out.print(d + " ");
+                    
+                }
+                
+                c /=10;
+                
+            }
+        }
+    }
+}
