@@ -1,0 +1,51 @@
+package by.jonline.arrayofarrays11.main;
+
+public class Main {
+
+    // Матрицу 10Х20 заполнить случайными эелементами от 0 до 15.
+    // Вывести на экран саму матрицу и номера строк, в которых число 5 встречается три и более раз.
+    
+    public static void main(String[] args) {
+    
+	    final int row = 10;
+	    final int col = 20;
+      
+	    int[][] matrix = new int[row][col];
+      
+	    for(int i=0; i<row; i++){
+      
+	        for(int j=0; j<col; j++){
+          
+	            matrix[i][j]=(int)(Math.random()*15);
+              System.out.print(matrix[i][j] + "\t");
+              
+          }
+           
+           System.out.println();
+      }
+        
+	    int counter=0;
+      
+	    for(int i=0; i<row; i++){
+      
+	        for(int j=0; j<col; j++){
+          
+	            if(matrix[i][j] == 5){
+              
+	                counter++;
+                  
+                }
+                
+            }
+            
+            if(counter>=3){
+            
+                System.out.println("In " + i + " row 5 occurs " + counter + " times");
+                
+            }
+            
+	        counter = 0;
+          
+        }
+    }
+}
