@@ -1,0 +1,56 @@
+package by.jonline.array4.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Даны действительные числа. Поменять местами наибольший и наименьший элемент
+    
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        double min = 0;
+        double max = 0;
+        int iMin = 0;
+        int iMax = 0;
+        double split;
+        
+        System.out.println("Enter amount of numbers: ");
+        int size = console.nextInt();
+        
+        System.out.println("Enter numbers: ");
+        double[] array = new double[size];
+        
+        for(int i = 0; i<size; i++){
+        
+            array[i] = console.nextDouble();
+            
+            if(array[i]<min){
+            
+                min = array[i];
+                iMin = i;
+                
+            }
+            
+            if(array[i]>max){
+            
+                max = array[i];
+                iMax = i;
+                
+            }
+        }
+        
+        split = array[iMin];
+        array[iMin] = array[iMax];
+        array[iMax] = split;
+        
+        System.out.println("New array: ");
+        
+        for (int i =0; i<size; i++){
+        
+            System.out.print(array[i] + " ");
+            
+        }
+    }
+}
