@@ -1,0 +1,50 @@
+package by.jonline.arrayofarrays3.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Дана матрица. Вывести k-ю строку и p-й столбец матрицы.
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of rows: ");
+        int row = console.nextInt();
+        
+        System.out.println("Enter amount of columns: ");
+        int col = console.nextInt();
+        
+        int[][] matrix = new int[row][col];
+        
+        for(int i =0; i<row; i++){
+        
+            System.out.print("Enter " + (i+1) + " row: ");
+            
+            for(int j=0; j<col; j++){
+            
+                matrix[i][j]=console.nextInt();
+                
+            }
+        }
+        
+        System.out.println("Enter row and column that you want to display: ");
+        int k = console.nextInt();
+        int p = console.nextInt();
+        
+        System.out.print("Element in "+ k + " row and " + p + " column is ");
+        
+        for(int i=0; i<row; i++){
+        
+            for(int j=0; j<col; j++){
+            
+                if(i==(k-1) & j==(p-1)){
+                
+                    System.out.println(matrix[i][j]);
+                    
+                }
+            }
+        }
+    }
+}
