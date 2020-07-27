@@ -1,0 +1,67 @@
+package by.jonline.arrayofarrays14.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // СФормировать случайную матрицу mxn, состоящую из нулей и единиц,
+    // причем в каждом столбце число единиц равно номеру столбца
+    
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of rows: ");
+        int row = console.nextInt();
+        
+        System.out.println("Enter amount of columns: ");
+        int col = console.nextInt();
+        
+        if(col<row){
+        
+            System.out.println("The number of columns must be greater than or equal to thee number of rows.");
+            
+            System.out.println("Enter amount of rows: ");
+            row = console.nextInt();
+            
+            System.out.println("Enter amount of columns: ");
+            col = console.nextInt();
+            
+        }
+        
+        int counter;
+        
+        int[][] matrix = new int[row][col];
+        
+        for(int j=0; j<col; j++){
+        
+            counter = j;
+            
+            for(int i=0; i<row; i++){
+            
+                if(counter==0){
+                
+                    matrix[i][j]=0;
+                    
+                } else if(counter<=j){
+                
+                    matrix[i][j]=1;
+                    counter--;
+                    
+                }
+            }
+        }
+        
+        for(int i=0; i<row; i++){
+        
+            for(int j=0; j<col; j++){
+            
+                System.out.print(matrix[i][j] + "\t");
+                
+            }
+            
+            System.out.println();
+            
+        }
+    }
+}
