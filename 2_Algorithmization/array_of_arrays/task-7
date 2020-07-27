@@ -1,0 +1,70 @@
+package by.jonline.arrayofarrays7.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void matrix_Make(double A[][], int n){
+    
+        for(int i=0; i<n; i++){
+        
+            for(int j =0; j<n; j++){
+            
+                A[i][j]=Math.sin((i*i-j*j)/n);
+                
+            }
+            
+        }
+
+    }
+
+    public static void matrix_Print(double A[][], int n) {
+    
+        for(int i=0; i<n; i++){
+        
+            for(int j=0; j<n; j++){
+            
+                System.out.printf("%.2f", A[i][j]);
+                System.out.print("\t");
+                
+            }
+            
+            System.out.println();
+            
+        }
+    }
+
+    public static void counter(double A[][], int n) {
+    
+        int count=0;
+        
+        for(int i=0; i<n; i++){
+        
+            for(int j=0; j<n; j++){
+            
+                if(A[i][j]<0){
+                
+                    count++;
+                    
+                }
+            }
+        }
+        
+        System.out.println("The number of negative numbers is " + count);
+    }
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of matrix: ");
+        int size = console.nextInt();
+        
+        double[][] matrix = new double[size][size];
+        
+        matrix_Make(matrix, size);
+        matrix_Print(matrix, size);
+        counter(matrix, size);
+        
+    }
+}
