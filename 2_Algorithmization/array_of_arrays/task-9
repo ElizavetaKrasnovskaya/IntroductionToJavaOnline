@@ -1,0 +1,77 @@
+package by.jonline.arrayofarrays9.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Задана матрица неотрицательных чисел. Посчитать сумму элементов в каждом столбце.
+    // Определить, какой столбец содержит максимальную сумму.
+    
+    public static void sumCounter(int[][]matrix, int col, int row) {
+    
+        int[] sum = new int[col];
+        
+        for(int j=0; j<col; j++){
+        
+            for(int i=0; i<row; i++){
+            
+                sum[j]+=matrix[i][j];
+                
+            }
+            
+            System.out.println("The sum of " + j + " column is " + sum[j]);
+            
+        }
+        
+        int max = sum[0];
+        int index =0 ;
+        
+        for(int i=0; i< col; i++){
+        
+            if(sum[i]> max){
+            
+                max = sum[i];
+                index = i;
+                
+            }
+        }
+        
+        System.out.println(index + " column contains the maximum amount");
+        
+    }
+    public static void main(String[] args) {
+    
+	    Scanner console = new Scanner(System.in);
+      
+        System.out.println("Enter amount of rows: ");
+        int row = console.nextInt();
+        
+        System.out.println("Enter amount of columns: ");
+        int col = console.nextInt();
+        
+        int[][] matrix = new int[row][col];
+        
+        for(int i=0; i<row; i++){
+        
+            for(int j=0; j<col; j++){
+            
+                System.out.print("Enter element of " + j + " column " + i + " row: ");
+                matrix[i][j] = console.nextInt();
+                
+                if(matrix[i][j]<0){
+                
+                    System.out.println("You can't enter negative elements");
+                    System.out.print("Enter element of " + j + " column " + i + " row: ");
+                    matrix[i][j] = console.nextInt();
+                    
+                }
+            }
+            
+            System.out.println();
+            
+        }
+        
+        sumCounter(matrix, col, row);
+        
+    }
+}
