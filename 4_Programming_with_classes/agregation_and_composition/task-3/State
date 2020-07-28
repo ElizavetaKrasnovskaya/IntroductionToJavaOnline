@@ -1,0 +1,50 @@
+package by.jonline.agregation3.state;
+
+import by.jonline.agregation3.city.City;
+import by.jonline.agregation3.region.Region;
+
+public class State {
+
+    private String stateName;
+    private Region[] regions;
+    private City capital;
+
+    public State(String stateName_, City capital_){
+    
+        stateName = stateName_;
+        capital = capital_;
+        
+    }
+
+    public void printCapital(){
+    
+        System.out.println(capital.getCityName() + " is the capital of " + stateName);
+        
+    }
+
+    public void setRegions(Region[] regions_){
+    
+        regions = regions_;
+        
+    }
+
+    public Region[] getRegions(){
+    
+        return regions;
+        
+    }
+
+    public int countArea(){
+    
+        int totalArea = 0;
+        
+        for(int i=0; i<regions.length; i++){
+        
+            totalArea += regions[i].getRegionArea();
+            
+        }
+        
+        return totalArea;
+        
+    }
+}
