@@ -1,0 +1,51 @@
+package controller;
+
+import model.Cave;
+
+import java.util.Scanner;
+
+public class SwitchCase {
+
+    private int choice;
+    private Cave cave = new Cave();
+    Scanner scanner = new Scanner(System.in);
+
+    public SwitchCase(int choice){
+    
+        this.choice = choice;
+        
+    }
+
+    public void cases(){
+    
+        switch (choice){
+        
+            case 1:
+            
+                cave.print();
+                break;
+
+            case 2:
+            
+                cave.findingMaxValue();
+                break;
+
+            case 3:
+            
+                System.out.println("Enter amount: ");
+                int amount = scanner.nextInt();
+                
+                if(amount <60){
+                
+                    System.out.println("Insufficient funds");
+                    System.out.println("Enter another amount");
+                    amount = scanner.nextInt();
+                    
+                }
+                
+                cave.treasuresForSpecifiedAmount(amount);
+                break;
+                
+        }
+    }
+}
