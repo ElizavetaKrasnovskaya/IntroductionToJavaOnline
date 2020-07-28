@@ -58,7 +58,7 @@ public class PortDataBase<E> {
             }catch (InterruptedException ex){
             
                 ex.printStackTrace();
-                
+               
             }
         }
         
