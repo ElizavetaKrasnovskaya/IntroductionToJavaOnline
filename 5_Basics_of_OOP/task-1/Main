@@ -1,0 +1,63 @@
+package by.jonline.oop1.main;
+
+import by.jonline.oop1.textfile.TextFile;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        TextFile file = new TextFile();
+
+        while (true) {
+        
+            System.out.println("Enter 1, 2, 3, 4, 5 or 6");
+            System.out.println("1 - create file");
+            System.out.println("2 - rename file");
+            System.out.println("3 - print contents of file");
+            System.out.println("4 - complete file");
+            System.out.println("5 - delete file");
+            System.out.println("6 - exit");
+            
+            int choice = scanner.nextInt();
+
+            if(choice==6){
+            
+                break;
+                
+            }
+            
+            switch (choice){
+            
+                case 1:
+                
+                    file.creatingFile(scanner);
+                    break;
+                    
+                case 2:
+                
+                    file.renameFile(scanner);
+                    break;
+
+                case 3:
+                
+                    file.reader();
+                    break;
+                    
+                case 4:
+                
+                    Scanner console = new Scanner(System.in);
+                    file.writer(console);
+                    break;
+                    
+                case 5:
+                
+                    file.delete();
+                    break;
+                    
+            }
+        }
+    }
+}
