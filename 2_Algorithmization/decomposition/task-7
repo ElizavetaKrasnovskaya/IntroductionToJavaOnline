@@ -1,0 +1,39 @@
+package by.jonline.method7.main;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      int number = 9;
+        
+        System.out.println("Sum of factorial from 9 to 1 is " + findingSumOfFact(number));
+    }
+
+    public static int findingSumOfFact(int number) {
+    
+        int sumOfFact = 0;
+        
+        while(number>0){
+        
+            sumOfFact += findingFact(number);
+            number--;
+            
+        }
+        
+        return sumOfFact;
+        
+    }
+
+    public static int findingFact(int number) {
+    
+        if(number == 1){
+        
+            return 1;
+            
+        }else{
+        
+            return number*findingFact(number-1);
+            
+        }
+    }
+}
