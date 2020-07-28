@@ -1,0 +1,122 @@
+package by.jonline.class10.airplane;
+
+import java.util.Scanner;
+
+public class Airplane {
+
+    private String destination;
+    private String flightNumber;
+    private String typeOfAirplane;
+    private String departureTime;
+    private String daysOfWeek;
+
+    public Airplane(String destination_, String flightNumber_, String typeOfAirplane_,
+                    String departureTime_, String daysOfWeek_){
+                    
+        destination = destination_;
+        flightNumber = flightNumber_;
+        typeOfAirplane = typeOfAirplane_;
+        departureTime = departureTime_;
+        daysOfWeek = daysOfWeek_;
+        
+    }
+
+    public String toString(){
+    
+        String line = destination + " " + flightNumber + " " + typeOfAirplane + " " +
+                departureTime + " " + daysOfWeek;
+                
+        return line;
+        
+    }
+
+    public void print(){
+    
+        System.out.println(toString());
+        
+    }
+
+    public void setDestination(String destination_){
+    
+        destination = destination_;
+        
+    }
+
+    public void setFlightNumber(String flightNumber_){
+    
+        flightNumber = flightNumber_;
+        
+    }
+
+    public void setTypeOfAirplane(String typeOfAirplane_){
+    
+        typeOfAirplane = typeOfAirplane_;
+        
+    }
+
+    public void setDepartureTime(String departureTime_){
+    
+        departureTime = departureTime_;
+        
+    }
+
+    public void setDaysOfWeek(String daysOfWeek_){
+    
+        daysOfWeek = daysOfWeek_;
+        
+    }
+
+    public String getDestination(){
+    
+        return destination;
+        
+    }
+
+    public String getFlightNumber(){
+    
+        return flightNumber;
+        
+    }
+
+    public String getTypeOfAirplane(){
+    
+        return typeOfAirplane;
+        
+    }
+
+    public String getDepartureTime(){
+    
+        return departureTime;
+        
+    }
+
+    public String getDaysOfWeek(){
+    
+        return daysOfWeek;
+        
+    }
+
+    public static Airplane getAirplane(Scanner console){
+    
+        Airplane airplane = new Airplane("", "", "",
+                "", "");
+                
+        System.out.println("Enter destination: ");
+        airplane.destination = console.next();
+
+        System.out.println("Enter flight number: ");
+        airplane.flightNumber = console.next();
+
+        System.out.println("Enter type of airplane: ");
+        airplane.typeOfAirplane = console.next();
+
+        System.out.println("Enter departure time: ");
+        airplane.departureTime = console.next();
+
+        System.out.println("Enter days of week: ");
+        airplane.daysOfWeek = console.next();
+
+        return airplane;
+        
+    }
+}
