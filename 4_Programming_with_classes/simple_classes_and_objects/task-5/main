@@ -1,0 +1,44 @@
+package by.jonline.class5.main;
+
+import by.jonline.class5.counter.Counter;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter lower bound and upper bound:");
+        
+        int lowerBound = console.nextInt();
+        int upperBound = console.nextInt();
+
+        Counter firstCounter = new Counter(lowerBound, upperBound);
+        Counter secondCounter = new Counter(0, 10, 2);
+
+        System.out.println("First counter: " + firstCounter.result());
+        System.out.println("Second counter: " + secondCounter.result());
+
+        for(int i=0; i<10; i++){
+        
+            firstCounter.increment();
+            secondCounter.increment();
+            
+            System.out.println("First counter: " + firstCounter.result());
+            System.out.println("Second counter: " + secondCounter.result());
+            
+        }
+        
+        for(int i=0; i<10; i++){
+        
+            firstCounter.decrement();
+            secondCounter.decrement();
+            
+            System.out.println("First counter: " + firstCounter.result());
+            System.out.println("Second counter: " + secondCounter.result());
+            
+        }
+    }
+}
