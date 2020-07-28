@@ -1,0 +1,132 @@
+package controller;
+
+import model.Note;
+
+import java.util.Scanner;
+
+public class User {
+
+    Note note = new Note();
+    
+    Scanner scanner;
+    
+    public void switchCase(int choice){
+    
+        switch (choice){
+        
+            case 1:
+            
+                scanner = new Scanner(System.in);
+                note.writer(scanner);
+                break;
+                
+            case 2:
+            
+                scanner = new Scanner(System.in);
+                System.out.println("Enter topic");
+                note.findingNoteByTopic(scanner.nextLine());
+                break;
+                
+            case 3:
+            
+                scanner = new Scanner(System.in);
+                
+                System.out.println("Enter date of creation (format: 01.01.2000)");
+                
+                String dateOfCreation = scanner.next();
+                
+                if(dateOfCreation.length() != 10 & dateOfCreation.indexOf(2) != '.' & dateOfCreation.indexOf(5) != '.') {
+                
+                    System.out.println("Enter date of creation (format: 01.01.2000)");
+                    dateOfCreation = scanner.next();
+                    
+                }else {
+                
+                    note.findingNoteByDateOfCreation(dateOfCreation);
+                    
+                }
+                
+                break;
+                
+            case 4:
+            
+                scanner = new Scanner(System.in);
+                
+                System.out.println("Enter mail (format somebody@epam.com)");
+                String mail = scanner.next();
+                
+                if(!mail.contains("@") & !mail.endsWith(".com")){
+                
+                    System.out.println("Enter mail (format somebody@epam.com)");
+                    mail = scanner.next();
+                    
+                }else {
+                
+                    note.findingNoteByMail(mail);
+                    
+                }
+                
+                break;
+                
+            case 5:
+            
+                scanner = new Scanner(System.in);
+                
+                System.out.println("Enter message");
+                note.findingNoteInMessageByWord(scanner.nextLine());
+                break;
+                
+            case 6:
+            
+                scanner = new Scanner(System.in);
+                
+                System.out.println("Enter topic");
+                String topic = scanner.nextLine();
+                
+                System.out.println("Enter date of creation (format: 01.01.2000)");
+                dateOfCreation = scanner.next();
+                
+                if(dateOfCreation.length() != 10 & dateOfCreation.indexOf(2) != '.' & dateOfCreation.indexOf(5) != '.') {
+                
+                    System.out.println("Enter date of creation (format: 01.01.2000)");
+                    dateOfCreation = scanner.next();
+                    
+                }else {
+                
+                    note.findingNoteByTopicAndDate(topic, dateOfCreation);
+                    
+                }
+                
+                break;
+                
+            case 7:
+            
+                scanner = new Scanner(System.in);
+                
+                System.out.println("Enter topic");
+                topic = scanner.nextLine();
+                
+                System.out.println("Enter mail (format somebody@epam.com)");
+                mail = scanner.next();
+                
+                if(!mail.contains("@") & !mail.endsWith(".com")){
+                
+                    System.out.println("Enter mail (format somebody@epam.com)");
+                    mail = scanner.next();
+                    
+                }else {
+                
+                    note.findingNoteByTopicAndMail(topic, mail);
+                    
+                }
+                
+                break;
+                
+            case 8:
+            
+                note.sortingNotesByTopic();
+                break;
+                
+        }
+    }
+}
