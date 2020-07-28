@@ -1,0 +1,9 @@
+package model;
+
+public interface Flower {
+
+    String getName();
+    int getPrice();
+    Color getColor();
+    
+}
