@@ -1,0 +1,64 @@
+package by.jonline.class3.main;
+
+public class Student {
+
+    private String surname;
+    private String initials;
+    private int group;
+    private int[] grade;
+    private int numberOfGrades;
+
+    public Student(String studentSurname, String studentInitials, int studentGroup){
+    
+        surname = studentSurname;
+        initials = studentInitials;
+        group = studentGroup;
+        numberOfGrades = 0;
+        grade = new int[5];
+        
+    }
+
+    boolean addGrade(int studentGrade){
+    
+        if(numberOfGrades >= 5){
+        
+            return false;
+            
+        }
+        
+        grade[numberOfGrades] = studentGrade;
+        numberOfGrades++;
+        return true;
+        
+    }
+
+    boolean isGood(){
+    
+        for(int i=0; i<numberOfGrades; i++){
+        
+            if(grade[i] != 9 & grade[i] != 10){
+            
+                return false;
+                
+            }
+        }
+        
+        return true;
+        
+    }
+
+    void print(){
+    
+        System.out.print(surname + " " + initials + " ");
+        System.out.print("Group: " + group + " Grades: ");
+        
+        for(int i=0; i<numberOfGrades; i++){
+        
+            System.out.print(grade[i] + " ");
+            
+        }
+        
+        System.out.println();
+        
+    }
+}
