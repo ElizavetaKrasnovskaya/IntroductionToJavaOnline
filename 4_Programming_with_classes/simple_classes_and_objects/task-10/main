@@ -1,0 +1,68 @@
+package by.jonline.class10.main;
+
+import by.jonline.class10.arrayofarrays.ArrayOfAirplanes;
+import by.jonline.class10.airplane.Airplane;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        ArrayOfAirplanes airplanes = new ArrayOfAirplanes(3);
+        
+        while (true){
+        
+            System.out.println("Enter 1, 2, 3, 4 or 5 ");
+            System.out.println("1 - add airplanes");
+            System.out.println("2 - print a list airplanes for a given destination");
+            System.out.println("3 - print a list airplanes for a day of the week");
+            System.out.println("4 - print a airplanes for a given destination and departure time");
+            System.out.println("5 - exit");
+
+            int choice = console.nextInt();
+            
+            if(choice == 5){
+            
+                break;
+                
+            }
+
+            switch (choice){
+            
+                case 1:
+                
+                    airplanes.fillingArray(Airplane.getAirplane(console));
+                    break;
+                    
+                case 2:
+                
+                    System.out.println("Enter destination: ");
+                    String destination = console.next();
+                    
+                    airplanes.printIfDestinationMatch(destination);
+                    break;
+                    
+                case 3:
+                
+                    System.out.println("Enter day of week: ");
+                    String dayOfWeek = console.next();
+                    
+                    airplanes.printIfDaysOfWeekMatch(dayOfWeek);
+                    break;
+                    
+                case 4:
+                
+                    System.out.println("Enter day of week and departure time");
+                    dayOfWeek = console.next();
+                    
+                    String departureTime = console.next();
+                    airplanes.printIfDaysOfWeekAndDepartureTimeBigger(dayOfWeek, departureTime);
+                    break;
+                    
+            }
+        }
+    }
+}
