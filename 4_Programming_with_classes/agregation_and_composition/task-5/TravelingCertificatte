@@ -1,0 +1,171 @@
+package by.jonline.agregation5.certificate;
+
+import by.jonline.agregation5.cruise.Cruise;
+import by.jonline.agregation5.excursion.Excursion;
+import by.jonline.agregation5.rest.Rest;
+import by.jonline.agregation5.shopping.Shopping;
+
+public class TravelingCertificate {
+
+    private Rest[] rests;
+    private Excursion[] excursions;
+    private Shopping[] shopping;
+    private Cruise[] cruises;
+
+    public void setRests(Rest[] rests_){
+    
+        rests = rests_;
+        
+    }
+
+    public void setExcursions(Excursion[] excursions_){
+    
+        excursions = excursions_;
+        
+    }
+
+    public void setShopping(Shopping[] shopping_){
+    
+        shopping = shopping_;
+        
+    }
+
+    public void setCruises(Cruise[] cruises_){
+    
+        cruises = cruises_;
+        
+    }
+
+    public Rest[] getRests(){
+    
+        return rests;
+        
+    }
+
+    public Excursion[] getExcursions(){
+    
+        return excursions;
+        
+    }
+
+    public Shopping[] getShopping(){
+    
+        return shopping;
+        
+    }
+
+    public Cruise[] getCruises(){
+    
+        return cruises;
+        
+    }
+
+    public void sortingByCost(double value){
+    
+        for(int i=0; i<2; i++){
+        
+            if(rests[i].getCost() < value){
+            
+                System.out.println(rests[i].toString());
+                
+            }
+            
+            if(excursions[i].getCost() < value){
+            
+                System.out.println(excursions[i].toString());
+                
+            }
+            
+            if(shopping[i].getCost() < value){
+            
+                System.out.println(shopping[i].toString());
+                
+            }
+            
+            if(cruises[i].getCost() < value){
+            
+                System.out.println(cruises[i].toString());
+                
+            }
+        }
+    }
+
+    public void sortingByTransport(String value){
+    
+        for(int i=0; i<2; i++){
+        
+            if(cruises[i].getTransport().equals(value)) {
+            
+                System.out.println(cruises[i].toString());
+                
+            }
+            
+            if(excursions[i].getTransport().equals(value)) {
+            
+                System.out.println(excursions[i].toString());
+                
+            }
+            
+            if(rests[i].getTransport().equals(value)) {
+            
+                System.out.println(rests[i].toString());
+                
+            }
+            
+            if(shopping[i].getTransport().equals(value)) {
+            
+                System.out.println(shopping[i].toString());
+                
+            }
+        }
+    }
+
+    public void sortingByFood(String value){
+    
+        for (int i=0; i<2; i++) {
+        
+            if (cruises[i].getFood().equals(value))
+                System.out.println(cruises[i].toString());
+                
+            if (excursions[i].getFood().equals(value))
+                System.out.println(excursions[i].toString());
+                
+            if (rests[i].getFood().equals(value))
+                System.out.println(rests[i].toString());
+                
+            if (shopping[i].getFood().equals(value))
+                System.out.println(shopping[i].toString());
+                
+        }
+    }
+
+    public void sortingByAmountOfDays(int value){
+    
+        for (int i=0; i<2; i++){
+        
+            if(cruises[i].getAmountOfDays() == value) {
+            
+                System.out.println(cruises[i].toString());
+                
+            }
+            
+            if(excursions[i].getAmountOfDays() == value) {
+            
+                System.out.println(excursions[i].toString());
+                
+            }
+            
+            if(rests[i].getAmountOfDays() == value) {
+            
+                System.out.println(rests[i].toString());
+                
+            }
+            
+            if(shopping[i].getAmountOfDays() == value) {
+            
+                System.out.println(shopping[i].toString());
+                
+            }
+        }
+    }
+}
