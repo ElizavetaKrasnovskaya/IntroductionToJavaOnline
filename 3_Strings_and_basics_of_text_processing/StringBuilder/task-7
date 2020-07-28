@@ -1,0 +1,46 @@
+package by.jonline.string7.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        System.out.println(formingNewLine(line));
+        
+    }
+
+    public static StringBuilder formingNewLine(String line) {
+    
+        StringBuilder newLine = new StringBuilder(line);
+        
+        for(int i=0; i<newLine.length(); i++){
+        
+            if(newLine.charAt(i) == ' '){
+            
+                newLine.deleteCharAt(i);
+                
+            }
+        }
+        
+        for(int i=0; i<newLine.length(); i++){
+        
+            for(int k=i+1; k<newLine.length(); k++){
+            
+                if(newLine.charAt(i) == newLine.charAt(k)){
+                
+                    newLine.deleteCharAt(k);
+                    
+                }
+            }
+        }
+        
+        return newLine;
+        
+    }
+}
