@@ -1,0 +1,149 @@
+package by.jonline.agregation4.main;
+
+import by.jonline.agregation4.account.Account;
+import by.jonline.agregation4.customer.Customer;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter your name and surname: ");
+        Customer customer = new Customer(scanner.next(), scanner.next());
+        
+        System.out.println("Enter amount of accounts: ");
+        int amountOfAccounts = scanner.nextInt();
+        
+        Account[] account = new Account[amountOfAccounts];
+
+        while (true){
+        
+            System.out.println("Enter 1, 2, 3, 4, 5, 6, 7, 8 or 9");
+            System.out.println("1 - add account");
+            System.out.println("2 - print blocked and unlocked accounts");
+            System.out.println("3 - add money");
+            System.out.println("4 - find information about account by number of account");
+            System.out.println("5 - sorting accounts");
+            System.out.println("6 - sum of all accounts");
+            System.out.println("7 - sum of positive accounts");
+            System.out.println("8 - sum of negative accounts");
+            System.out.println("9 - exit");
+
+            int choice = scanner.nextInt();
+            
+            if(choice == 9){
+            
+                break;
+                
+            }
+            
+            switch (choice){
+            
+                case 1:
+                
+                    for(int i=0; i<amountOfAccounts; i++){
+                    
+                        System.out.println("Enter number of account: ");
+                        String numberOfAccount = scanner.next();
+                        
+                        System.out.println("Enter balance of account: ");
+                        double balance = scanner.nextDouble();
+                        
+                        account[i] = new Account(numberOfAccount);
+                        
+                        account[i].setBalance(balance);
+                        
+                        customer.setAccounts(account);
+                        
+                    }
+                    
+                    break;
+
+                case 2:
+                
+                    for(int i=0; i<amountOfAccounts; i++){
+                    
+                        System.out.print(account[i].getNumberOfAccount() + " - ");
+                        
+                        account[i].blockAccount();
+                        account[i].unlockedAccount();
+                        
+                    }
+                    
+                    break;
+
+                case 3:
+                
+                    System.out.println("Enter number of account: ");
+                    int compareValue = scanner.nextInt();
+                    
+                    System.out.println("Enter amount of money you want to add: ");
+                    double money = scanner.nextDouble();
+                    
+                    for(int i=0; i<amountOfAccounts; i++){
+                    
+                        if(Integer.parseInt(account[i].getNumberOfAccount()) == compareValue){
+                        
+                            account[i].addBalance(money);
+                            
+                            System.out.println(account[i].getNumberOfAccount() + " " +
+                                    account[i].getBalance());
+                                    
+                        }
+                    }
+                    
+                    break;
+
+                case 4:
+                
+                    System.out.println("Enter number of account: ");
+                    int value = scanner.nextInt();
+                    
+                    for(int i=0; i<amountOfAccounts; i++){
+                    
+                        if(Integer.parseInt(account[i].getNumberOfAccount()) == value){
+                        
+                            System.out.println(account[i].getNumberOfAccount() + " " +
+                                    account[i].getBalance());
+                                    
+                        }
+                    }
+                    
+                    break;
+
+                case 5:
+                
+                    customer.sortingAccounts();
+                    
+                    for(int i=0; i<amountOfAccounts; i++){
+                    
+                        System.out.println(account[i].getNumberOfAccount() + " " + account[i].getBalance());
+                        
+                    }
+                    
+                    break;
+
+                case 6:
+                
+                    System.out.println(account.length);
+                    
+                    System.out.println("Balance of all accounts is " + customer.getBalanceAllAccounts());
+                    
+                    break;
+
+                case 7:
+                
+                    System.out.println("Balance of positive accounts is " + customer.getBalancePositiveAccounts());
+                    break;
+
+                case 8:
+                
+                    System.out.println("Balance of negative accounts is " + customer.getBalanceNegativeAccounts());
+                    break;
+            }
+        }
+    }
+}
