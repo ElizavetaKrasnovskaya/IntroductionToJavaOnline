@@ -1,0 +1,118 @@
+package view;
+
+import controller.Administrator;
+import controller.Password;
+import controller.User;
+
+import java.io.*;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        
+        File authorization = new File("C:/Users/User/Desktop/library/authorization.txt");
+        
+        try (FileWriter writer = new FileWriter(authorization, true)) {
+        
+            System.out.println("Enter your name: ");
+            writer.write(scanner.nextLine());
+            writer.write("\n");
+            writer.flush();
+            
+        } catch (IOException ex) {
+        
+            ex.printStackTrace();
+            
+        }
+        
+        System.out.println("Enter password");
+        
+        Password password = new Password();
+        
+        if(password.checkingPassword(scanner)){
+        
+            Administrator administrator = new Administrator();
+            
+            while(true){
+            
+                System.out.println("1 - add book");
+                System.out.println("2 - delete book");
+                System.out.println("3 - browse catalog");
+                System.out.println("4 - search book by name");
+                System.out.println("5 - exit");
+                
+                int choice = scanner.nextInt();
+                
+                if(choice == 5){
+                
+                    break;
+                    
+                }
+                
+                switch (choice){
+                
+                    case 1:
+                    
+                        Scanner console = new Scanner(System.in);
+                        administrator.addBook(console);
+                        break;
+                        
+                    case 2:
+                    
+                        console = new Scanner(System.in);
+                        administrator.delete(console);
+                        break;
+                        
+                    case 3:
+                    
+                        administrator.browseCatalog();
+                        break;
+                        
+                    case 4:
+                    
+                        console = new Scanner(System.in);
+                        administrator.searchByName(console);
+                        
+                }
+            }
+            
+        }else{
+        
+            User user = new User();
+            
+            while(true){
+            
+                System.out.println("1 - read all books");
+                System.out.println("2 - search book by name");
+                System.out.println("3 - exit");
+                
+                int choice = scanner.nextInt();
+                
+                if(choice == 3){
+                
+                    break;
+                    
+                }
+                
+                switch (choice){
+                
+                    case 1:
+                    
+                        user.browseCatalog();
+                        break;
+                        
+                    case 2:
+                    
+                        Scanner console = new Scanner(System.in);
+                        user.searchByName(console);
+                        break;
+                        
+                }
+            }
+        }
+    }
+}
