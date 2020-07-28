@@ -1,0 +1,26 @@
+package model;
+
+public class Peony implements Flower {
+
+    private final String name = "Peony";
+    private final int price = 10;
+    private final Color color = Color.Pink;
+
+    public String getName(){
+    
+        return name;
+        
+    }
+
+    public int getPrice(){
+    
+        return price;
+        
+    }
+
+    public Color getColor(){
+    
+        return color;
+        
+    }
+}
