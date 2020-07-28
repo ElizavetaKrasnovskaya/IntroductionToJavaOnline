@@ -1,0 +1,126 @@
+package model;
+
+public class Note extends Files{
+
+    public void findingNoteByTopic(String topic){
+    
+        for(int i=0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<4; j++) {
+            
+                if (formingNotes()[i][0].equals(topic)) {
+                
+                    System.out.println(formingNotes()[i][j]);
+                    
+                }
+            }
+        }
+    }
+
+    public void findingNoteByDateOfCreation(String date){
+    
+        for(int i=0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<4; j++) {
+            
+                if (formingNotes()[i][1].equals(date)) {
+                
+                    System.out.println(formingNotes()[i][j]);
+                    
+                }
+            }
+        }
+    }
+
+    public void findingNoteByMail(String mail){
+    
+        for(int i=0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<4; j++) {
+            
+                if (formingNotes()[i][2].equals(mail)) {
+                
+                    System.out.println(formingNotes()[i][j]);
+                    
+                }
+            }
+        }
+    }
+
+    public void findingNoteInMessageByWord(String message){
+    
+        for(int i=0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<4; j++) {
+            
+                if (formingNotes()[i][3].contains(message)) {
+                
+                    System.out.println(formingNotes()[i][j]);
+                    
+                }
+            }
+        }
+    }
+
+    public void findingNoteByTopicAndDate(String topic, String date){
+    
+        for(int i=0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<4; j++) {
+            
+                if (formingNotes()[i][0].equals(topic) & formingNotes()[i][1].equals(date)) {
+                
+                    System.out.println(formingNotes()[i][j]);
+                    
+                }
+            }
+        }
+    }
+
+    public void findingNoteByTopicAndMail(String topic, String mail){
+    
+        for(int i=0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<4; j++) {
+            
+                if (formingNotes()[i][0].equals(topic) & formingNotes()[i][2].equals(mail)) {
+                
+                    System.out.println(formingNotes()[i][j]);
+                    
+                }
+            }
+        }
+    }
+
+    public void sortingNotesByTopic(){
+    
+        String[] arrayOfTopics = new String[readingFiles().length];
+        
+        for(int i=0; i<readingFiles().length;i++){
+        
+            arrayOfTopics[i] = formingNotes()[i][0];
+            
+        }
+        
+        for(int i =0; i<readingFiles().length; i++){
+        
+            for(int j=0; j<readingFiles().length-1; j++){
+            
+                if(formingNotes()[j][0].toCharArray()[formingNotes()[0].length]
+                        < formingNotes()[j+1][0].toCharArray()[formingNotes()[0].length]){
+                        
+                    String temp = formingNotes()[j][0];
+                    formingNotes()[j][0] = formingNotes()[j+1][0];
+                    formingNotes()[j+1][0] = temp;
+                    
+                }
+            }
+        }
+        
+        for(int i=0; i<arrayOfTopics.length; i++){
+        
+            findingNoteByTopic(arrayOfTopics[i]);
+            
+        }
+    }
+}
