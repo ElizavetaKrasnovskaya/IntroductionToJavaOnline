@@ -1,0 +1,14 @@
+package by.jonline.oop2.main;
+
+import by.jonline.oop2.payment.Payment;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Payment payment = new Payment("First purchase: ");
+        payment.setPayment();
+        payment.printCheque();
+        
+    }
+}
