@@ -1,0 +1,55 @@
+package by.jonline.method15.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of digits: ");
+        int sizeOfNumber = console.nextInt();
+        
+        System.out.println("Enter amount of numbers: ");
+        int amount = console.nextInt();
+        
+        for(int i=0; i<amount; i++){
+        
+            formingNumber(sizeOfNumber);
+            
+        }
+    }
+
+    public static void formingNumber(int sizeOfNumber) {
+    
+        int[] array = new int[sizeOfNumber];
+        array[0] = (int)(Math.random()*5);
+        
+        if(array[0] == 0){
+        
+            array[0] = (int)(Math.random()*5);
+            
+        }
+        
+        for(int i=1; i<sizeOfNumber; i++){
+        
+            array[i] = (int)(Math.random()*10);
+            
+            if(array[i]<=array[i-1]){
+            
+                i--;
+                
+            }
+        }
+        
+        for(int i=0; i<sizeOfNumber; i++){
+        
+            System.out.print(array[i]);
+            
+        }
+        
+        System.out.println();
+        
+    }
+}
