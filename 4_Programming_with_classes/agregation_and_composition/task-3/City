@@ -1,0 +1,31 @@
+package by.jonline.agregation3.city;
+
+public class City {
+
+    private String cityName;
+    private boolean regionCenter;
+
+    public City(String cityName_){
+    
+        cityName = cityName_;
+        
+    }
+
+    public String getCityName(){
+    
+        return cityName;
+        
+    }
+
+    public boolean getRegionCenter(){
+    
+        return regionCenter;
+        
+    }
+
+    public void setRegionCenter(boolean regionCenter_){
+    
+        regionCenter = regionCenter_;
+        
+    }
+}
