@@ -1,0 +1,59 @@
+package by.jonline.method5.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter size of array: ");
+        int size = console.nextInt();
+        
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.println("Enter " + (i+1) + " element of array: ");
+            array[i] = console.nextInt();
+            
+        }
+        
+        System.out.println("Second largest number is " + findingSecondMax(array, size));
+        
+    }
+
+    public static int findingSecondMax(int[] array, int size) {
+    
+        int secondMax = 0;
+        
+        for(int i=0; i<size; i++){
+        
+            if(array[i]>secondMax & array[i]<findingMax(array, size)){
+            
+                secondMax = array[i];
+                
+            }
+        }
+        
+        return secondMax;
+        
+    }
+    public static int findingMax(int[] array, int size) {
+    
+        int max = array[0];
+        
+        for(int i=0; i<size; i++){
+        
+            if(array[i]>max){
+            
+                max = array[i];
+                
+            }
+        }
+        
+        return max;
+        
+    }
+}
