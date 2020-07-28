@@ -1,0 +1,61 @@
+package view;
+
+import controller.Factory;
+import model.Flower;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        
+        Flower[] flowers = new Flower[9];
+        
+        int i=0;
+        int sum = 0;
+        
+        while (true){
+        
+            System.out.println("Enter 1, 2, 3, 4, 5 or 6");
+            System.out.println("1 - add rose");
+            System.out.println("2 - add peony");
+            System.out.println("3 - add tulip");
+            System.out.println("4 - add packaging");
+            System.out.println("5 - full bouquet");
+            System.out.println("6 - exit");
+
+            int choice = scanner.nextInt();
+            
+            if(choice == 6){
+            
+                break;
+                
+            }
+            
+            Factory factory = new Factory();
+            
+            flowers[i] = factory.getCurrentFlower(choice);
+
+            if(choice<5 & choice>0){
+            
+                i++;
+                
+            }
+
+            if(choice == 5){
+            
+                for(int j=0; j<i; j++){
+                
+                    System.out.println(flowers[j].getName() + " " + flowers[j].getColor());
+                    sum += flowers[j].getPrice();
+                    
+                }
+                
+                System.out.println("Total price: " + sum);
+                
+            }
+        }
+    }
+}
