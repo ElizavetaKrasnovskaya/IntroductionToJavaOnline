@@ -1,0 +1,51 @@
+package by.jonline.method6.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter 3 numbers: ");
+        int number1 = console.nextInt();
+        int number2 = console.nextInt();
+        int number3 = console.nextInt();
+        
+        numbersAreSimple(number1, number2, number3);
+        
+    }
+
+    public static void numbersAreSimple(int number1, int number2, int number3) {
+    
+        double nod = findingNOD(number1, findingNOD(number2, number3));
+        
+        if(nod == 1){
+        
+            System.out.println("Numbers are simple.");
+            
+        }else{
+        
+            System.out.println("Numbers aren't simple.");
+            
+        }
+    }
+    
+    public static int findingNOD(int a, int b) {
+    
+        int nod =0;
+        
+        while (b!=0){
+        
+            int temp = a%b;
+            a = b;
+            b = temp;
+            nod = a;
+            
+        }
+        
+        return nod;
+        
+    }
+}
