@@ -1,0 +1,76 @@
+package by.jonline.class5.counter;
+
+public class Counter {
+
+    private int currentState;
+    private int upperBound;
+    private int lowerBound;
+
+    public Counter(int lowerBoundOfCounter, int upperBoundOfCounter, int currentStateOfCounter){
+    
+        currentState = currentStateOfCounter;
+        upperBound = upperBoundOfCounter;
+        lowerBound = lowerBoundOfCounter;
+
+        if(lowerBound>upperBound){
+        
+            int temp = lowerBound;
+            lowerBound = upperBound;
+            upperBound = temp;
+            
+        }
+        
+        if(currentState<lowerBound){
+        
+            currentState = lowerBound;
+            
+        }
+        
+        if(currentState>upperBound){
+        
+            currentState = upperBound;
+            
+        }
+    }
+
+    public Counter(int lowerBoundOfCounter, int upperBoundOfCounter){
+    
+        this(lowerBoundOfCounter,upperBoundOfCounter, lowerBoundOfCounter);
+        currentState = lowerBound;
+        
+    }
+
+    public Counter(){
+    
+        this(0,10,0);
+        
+    }
+
+    public void increment(){
+    
+        currentState++;
+        
+        if(currentState>upperBound){
+        
+            currentState = lowerBound;
+            
+        }
+    }
+
+    public void decrement(){
+    
+        currentState--;
+        
+        if(currentState<lowerBound){
+        
+            currentState = upperBound;
+            
+        }
+    }
+
+    public int result(){
+    
+        return currentState;
+        
+    }
+}
