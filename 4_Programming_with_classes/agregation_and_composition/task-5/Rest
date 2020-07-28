@@ -1,0 +1,53 @@
+package by.jonline.agregation5.rest;
+
+public class Rest {
+
+    private String city;
+    private double cost;
+    private int amountOfDays;
+    private String transport;
+    private String food;
+
+    public Rest(String city_, double cost_, int amountOfDays_, String transport_, String food_){
+    
+        city = city_;
+        cost = cost_;
+        amountOfDays = amountOfDays_;
+        transport = transport_;
+        food = food_;
+        
+    }
+
+    public String toString(){
+    
+        String line = "Rest: City: " + city + ", cost: " + cost + ", amount of days: "
+                + amountOfDays + ", transport: " + transport + ", food: " + food;
+                
+        return line;
+        
+    }
+
+    public double getCost(){
+    
+        return cost;
+        
+    }
+
+    public String getTransport(){
+    
+        return transport;
+        
+    }
+
+    public String getFood(){
+    
+        return food;
+        
+    }
+
+    public int getAmountOfDays(){
+    
+        return amountOfDays;
+        
+    }
+}
