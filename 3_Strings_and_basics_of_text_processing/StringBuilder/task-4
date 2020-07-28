@@ -1,0 +1,21 @@
+package by.jonline.string4.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+      
+	      String startLine = "информатика";
+        
+        System.out.println("Start line: " + startLine);
+        
+	      String newLine = startLine.substring(7, 8) + startLine.substring(3, 4)
+                + startLine.substring(4, 5) + startLine.substring(7, 8);
+                
+        System.out.println("New line: " + newLine);
+        
+    }
+}
