@@ -1,0 +1,54 @@
+package by.jonline.agregation3.region;
+
+import by.jonline.agregation3.city.City;
+import by.jonline.agregation3.district.District;
+
+public class Region {
+
+    private String regionName;
+    private District[] districts;
+    private int regionArea;
+
+    public Region(String regionName_){
+    
+        regionName = regionName_;
+        
+    }
+
+    public void setRegionArea(int regionArea_){
+    
+        regionArea = regionArea_;
+        
+    }
+
+    public int getRegionArea(){
+    
+        return regionArea;
+        
+    }
+
+    public void setDistricts(District[] districts_){
+    
+        districts = districts_;
+        
+    }
+
+    public void printCenter(){
+    
+        for(int i=0; i<districts.length; i++){
+        
+            City[] cities = districts[i].getCities();
+            
+            for(int j=0; j<cities.length; j++){
+            
+                City city = cities[j];
+                
+                if(city.getRegionCenter()){
+                
+                    System.out.println(city.getCityName() + " is region center");
+                    
+                }
+            }
+        }
+    }
+}
