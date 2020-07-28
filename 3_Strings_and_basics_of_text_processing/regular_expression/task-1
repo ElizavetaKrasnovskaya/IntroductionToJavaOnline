@@ -1,0 +1,275 @@
+package by.jonline.pattern1.main;
+
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        String string = "Java is a general-purpose programming language that is class-based, " +
+                "object-oriented, and designed to have as few implementation dependencies as possible." +
+                "It is intended to let application developers write once, run anywhere, " +
+                "meaning that compiled Java code can run on all platforms that support Java " +
+                "without the need for recompilation.\nJava applications are typically compiled " +
+                "to bytecode that can run on any Java virtual machine regardless of the " +
+                "underlying computer architecture.\nThe syntax of Java is similar to C and C++, " +
+                "but it has fewer low-level facilities than either of them.As of 2019, Java was " +
+                "one of the most popular programming languages in use according to GitHub, " +
+                "particularly for client-server web applications, with a reported 9 million developers." +
+                "Java was originally developed by James Gosling at Sun Microsystems " +
+                "and released in 1995 as a core component of Sun Microsystems' Java platform.";
+                
+        System.out.println(string);
+        
+        String text = string.toLowerCase();
+        
+        System.out.println("Enter 1, 2 or 3");
+        System.out.println("1 - sort paragraphs by the number of sentences.");
+        System.out.println("2 - sort words by length.");
+        System.out.println("3 - sort tokens in a sentence in descending order " +
+                "of occurrences of a given character.");
+                
+        int choice = console.nextInt();
+        
+        switch (choice) {
+        
+            case 1:
+            
+                choice1(text);
+                break;
+                
+            case 2:
+            
+                choice2(text);
+                break;
+                
+            case 3:
+            
+                choice3(text);
+                break;
+                
+        }
+    }
+
+    public static void choice1(String text) {
+    
+        Pattern pattern = Pattern.compile("\n");
+        
+        String[] paragraph = pattern.split(text);
+        
+        for (int i = 0; i < paragraph.length; i++) {
+        
+            for (int k = 0; k < paragraph.length; k++) {
+            
+                if (counterOfSentences(paragraph[i]) < counterOfSentences(paragraph[k])) {
+                
+                    String temp = paragraph[i];
+                    paragraph[i] = paragraph[k];
+                    paragraph[k] = temp;
+                    
+                }
+            }
+        }
+        
+        for (int i = 0; i < paragraph.length; i++) {
+        
+            System.out.println(paragraph[i]);
+            
+        }
+    }
+
+    public static int counterOfSentences(String paragraph) {
+    
+        int counter = 0;
+        
+        for (int i = 0; i < paragraph.length(); i++) {
+        
+            if (paragraph.charAt(i) == '.' | paragraph.charAt(i) == '?' | paragraph.charAt(i) == '!') {
+            
+                counter++;
+                
+            }
+        }
+        
+        return counter;
+        
+    }
+
+    public static void choice2(String text) {
+    
+        Pattern pattern = Pattern.compile("\\.");
+        
+        String[] sentences = pattern.split(text);
+        
+        for (int i = 0; i < sentences.length; i++) {
+        
+            sortingSentences(sentences[i]);
+            
+        }
+    }
+
+    public static void sortingSentences(String sentence) {
+    
+        Pattern pattern = Pattern.compile("[\\s\\n,.!]+");
+        
+        String[] word = pattern.split(sentence);
+        
+        for (int i = 0; i < word.length; i++) {
+        
+            for (int k = 0; k < word.length; k++) {
+            
+                if (counterOfWords(word[i]) < counterOfWords(word[k])) {
+                
+                    String temp = word[i];
+                    word[i] = word[k];
+                    word[k] = temp;
+                    
+                }
+            }
+        }
+        
+        for (int i = 0; i < word.length; i++) {
+        
+            System.out.print(word[i] + " ");
+            
+        }
+        
+        System.out.println();
+        
+    }
+
+    public static int counterOfWords(String word) {
+    
+        int counter = 0;
+        
+        for (int i = 0; i < word.length(); i++) {
+        
+            if (word.charAt(i) != ' ') {
+            
+                counter++;
+                
+            }
+        }
+        
+        return counter;
+        
+    }
+
+    public static void choice3(String text) {
+    
+        Pattern pattern = Pattern.compile("\\.");
+        
+        String[] sentences = pattern.split(text);
+        
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter symbol to sort sentences: ");
+        
+        String input = console.nextLine();
+        
+        for(int i=0; i<sentences.length; i++){
+        
+            sortingSentencesBySymbol(sentences[i], input);
+            
+        }
+    }
+
+    public static void sortingSentencesBySymbol(String sentences, String input) {
+    
+        Pattern pattern = Pattern.compile("[\\s\\n,.!]+");
+        
+        String[] word = pattern.split(sentences);
+        
+        for(int i=0; i<word.length; i++){
+        
+            for(int k=0; k<word.length; k++){
+            
+                if(counterInTokens(word[i], input) > counterInTokens(word[k], input)){
+                
+                    String temp = word[i];
+                    word[i] = word[k];
+                    word[k] = temp;
+                    
+                }
+                if(counterInTokens(word[i], input)== counterInTokens(word[k], input)){
+                
+                    if(word[i].length() > word[k].length()){
+                    
+                        for(int j=0; j<word[k].length(); j++){
+                        
+                            if(word[i].toCharArray()[j]>word[k].toCharArray()[j]){
+                            
+                                break;
+                                
+                            }
+                            if(word[i].toCharArray()[j]<word[k].toCharArray()[j]){
+                            
+                                String temp = word[i];
+                                word[i] = word[k];
+                                word[k] = temp;
+                                break;
+                                
+                            }
+
+                        }
+                        
+                    }else if(word[i].length() < word[k].length()){
+                    
+                        for(int j=0; j<word[i].length(); j++){
+                        
+                            if(word[i].toCharArray()[j]<word[k].toCharArray()[j]){
+                            
+                                break;
+                                
+                            }
+                            
+                            if(word[i].toCharArray()[j]>word[k].toCharArray()[j]){
+                            
+                                String temp = word[i];
+                                word[i] = word[k];
+                                word[k] = temp;
+                                break;
+                                
+                            }
+                            
+                            if(word[i].toCharArray()[j]==word[k].toCharArray()[j]){
+                            
+                                j++;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        for (int i = 0; i < word.length; i++) {
+        
+            System.out.print(word[i] + " ");
+            
+        }
+        
+        System.out.println();
+        
+    }
+
+    public static int counterInTokens(String word, String input) {
+    
+        int counter = 0;
+        
+        for(int i=0; i<word.length(); i++){
+        
+            if (word.charAt(i) != ' ' & word.charAt(i) == input.charAt(0)) {
+            
+                counter++;
+                
+            }
+        }
+        
+        return counter;
+        
+    }
+}
