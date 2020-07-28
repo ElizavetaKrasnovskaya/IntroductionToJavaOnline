@@ -1,0 +1,36 @@
+package by.jonline.string9.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        counterOfLetters(line);
+        
+    }
+
+    public static void counterOfLetters(String line) {
+    
+        int upperCase = 0;
+        int lowerCase = 0;
+        
+        for(int i=0; i<line.length(); i++){
+        
+            if(Character.isUpperCase(line.charAt(i))) upperCase++;
+            
+            if(Character.isLowerCase(line.charAt(i))) lowerCase++;
+            
+        }
+        
+        System.out.println("Amount of lowercase letters is " + lowerCase);
+        
+        System.out.println("Amount of uppercase letters is " + lowerCase);
+        
+    }
+}
