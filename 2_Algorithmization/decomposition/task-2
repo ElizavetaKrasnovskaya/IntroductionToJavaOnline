@@ -1,0 +1,33 @@
+package by.jonline.method2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter four numbers: ");
+        int number1 = console.nextInt();
+        int number2 = console.nextInt();
+        int number3 = console.nextInt();
+        int number4 = console.nextInt();
+        
+        System.out.println("The greatest common factor is " + lcd(lcd(number1, number2), lcd(number3, number4)));
+        
+    }
+
+    public static int lcd(int a, int b) {
+    
+        while (b!=0){
+        
+            int temp = a%b;
+            a = b;
+            b = temp;
+            
+        }
+        
+        return a;
+    }
+}
