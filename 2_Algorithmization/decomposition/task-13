@@ -1,0 +1,52 @@
+package by.jonline.method13.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        System.out.println("Enter segment: ");
+	      int start = console.nextInt();
+	      int end = console.nextInt();
+        
+        twins(start, end);
+        
+    }
+
+    public static void twins(int start, int end) {
+    
+        int count =0;
+        
+        for(int i=start; i<(end-2); i++){
+        
+            if(nod(i, (i+2))==1){
+            
+                System.out.println(i + " and " + (i+2) + " are twins");
+                count++;
+                
+            }
+        }
+        
+        if(count==0){
+        
+            System.out.println("There are no twins");
+            
+        }
+    }
+    
+    public static int nod(int a, int b) {
+    
+        while(b!=0){
+        
+            int temp = a%b;
+            a = b;
+            b=temp;
+            
+        }
+        
+        return a;
+        
+    }
+}
