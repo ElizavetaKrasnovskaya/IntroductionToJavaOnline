@@ -1,0 +1,38 @@
+package controller;
+
+import model.*;
+
+public class Factory {
+
+    public Flower getCurrentFlower(int choice){
+    
+        Flower flower = null;
+        
+        if(choice == 1){
+        
+            flower = new Rose();
+            
+        }
+        
+        if(choice == 2){
+        
+            flower = new Peony();
+            
+        }
+        
+        if(choice == 3){
+        
+            flower = new Tulip();
+            
+        }
+        
+        if(choice == 4){
+        
+            flower = new Packaging();
+            
+        }
+        
+        return flower;
+        
+    }
+}
