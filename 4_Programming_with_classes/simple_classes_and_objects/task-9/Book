@@ -1,0 +1,162 @@
+package by.jonline.class9.book;
+
+import java.util.Scanner;
+
+public class Book {
+
+    private int id;
+    private static int ID;
+    private String title;
+    private String author;
+    private String publishingHouse;
+    private String yearOfPublishing;
+    private String numberOfPages;
+    private String price;
+    private String bindingType;
+
+    public Book(String title_, String author_, String publishingHouse_, String yearOfPublishing_,
+                String numberOfPages_, String price_, String bindingType_){
+                
+        id = ID++;
+        title = title_;
+        author = author_;
+        publishingHouse = publishingHouse_;
+        yearOfPublishing = yearOfPublishing_;
+        numberOfPages = numberOfPages_;
+        price = price_;
+        bindingType = bindingType_;
+        
+    }
+
+    public String toString() {
+    
+        String line = id + ": " + title + " " + author + " " + publishingHouse + " " + " "
+                + yearOfPublishing + " " + numberOfPages + " " + price + " " + bindingType;
+                
+        return line;
+        
+    }
+
+    public void print(){
+    
+        System.out.println(toString());
+        
+    }
+
+    public void setTitle(String title_){
+    
+        title = title_;
+        
+    }
+
+    public void setAuthor(String author_){
+    
+        author = author_;
+        
+    }
+
+    public void setPublishingHouse(String publishingHouse_){
+    
+        publishingHouse = publishingHouse_;
+        
+    }
+
+    public void setYearOfPublishing(String yearOfPublishing_){
+    
+        yearOfPublishing = yearOfPublishing_;
+        
+    }
+
+    public void setNumberOfPages(String numberOfPages_){
+    
+        numberOfPages = numberOfPages_;
+        
+    }
+
+    public void setPrice(String price_){
+    
+        price = price_;
+        
+    }
+
+    public void setBindingType(String bindingType_){
+    
+        bindingType = bindingType_;
+    }
+
+    public int getId(){
+    
+        return id;
+        
+    }
+
+    public String getTitle(){
+    
+        return title;
+        
+    }
+
+    public String getAuthor(){
+    
+        return author;
+        
+    }
+
+    public String getPublishingHouse(){
+    
+        return publishingHouse;
+        
+    }
+
+    public String getYearOfPublishing(){
+    
+        return yearOfPublishing;
+        
+    }
+
+    public String getNumberOfPages(){
+    
+        return numberOfPages;
+        
+    }
+
+    public String getPrice(){
+    
+        return price;
+        
+    }
+
+    public String getBindingType(){
+    
+        return bindingType;
+        
+    }
+
+    public static Book getBook(Scanner console){
+    
+        Book book = new Book("", "", "", "",
+                "", "", "");
+                
+        System.out.print("Title: ");
+        book.title = console.next();
+
+        System.out.print("Author: ");
+        book.author = console.next();
+
+        System.out.print("Publishing house: ");
+        book.publishingHouse = console.next();
+
+        System.out.print("Year of publishing: ");
+        book.yearOfPublishing = console.next();
+
+        System.out.print("Number of pages: ");
+        book.numberOfPages = console.next();
+
+        System.out.print("Price: ");
+        book.price = console.next();
+
+        System.out.print("Binding type: ");
+        book.bindingType = console.next();
+        return book;
+    }
+}
