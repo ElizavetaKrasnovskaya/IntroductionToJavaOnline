@@ -1,0 +1,63 @@
+package by.jonline.method4.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter amount of coordinates: ");
+        int size = console.nextInt();
+        
+        int[] arrayOfX = new int[size];
+        int[] arrayOfY = new int[size];
+        
+        for(int i = 0; i<size; i++){
+        
+            System.out.println("Enter x of " + (i+1) + " coordinate: ");
+            arrayOfX[i] = console.nextInt();
+            
+            System.out.println("Enter y of " + (i+1) + " coordinate: ");
+            arrayOfY[i] = console.nextInt();
+            
+        }
+        
+        maxDistance(arrayOfX, arrayOfY, size);
+        
+    }
+
+    public static void maxDistance(int[] arrayOfX, int[] arrayOfY, int size) {
+    
+        double max = findingDistance(arrayOfX[0], arrayOfX[1], arrayOfY[0], arrayOfY[1]);
+        
+        int x = 0;
+        int y = 0;
+        
+        for(int i=0; i<size-1; i++){
+        
+            for(int j=0; j<size;j++){
+            
+                if(findingDistance(arrayOfX[i], arrayOfX[j], arrayOfY[i], arrayOfY[j])>max){
+                
+                    max = findingDistance(arrayOfX[i], arrayOfX[j], arrayOfY[i], arrayOfY[j]);
+                    x = i;
+                    y = j;
+                    
+                }
+            }
+        }
+        
+        System.out.println("Between coordinates (" + arrayOfX[x] + "," + arrayOfY[x] +
+                ") and (" + arrayOfX[y] + "," + arrayOfY[y] + ") the maximum distance is " + max);
+                
+    }
+
+    public static double findingDistance(int x1, int x2, int y1, int y2) {
+    
+        double distance = Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2));
+        return distance;
+        
+    }
+}
