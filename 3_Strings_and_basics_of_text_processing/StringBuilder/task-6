@@ -1,0 +1,31 @@
+package by.jonline.string6.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        formingNewLine(line);
+        
+    }
+
+    public static void formingNewLine(String line) {
+    
+        StringBuilder newLine = new StringBuilder();
+        
+        for(int i=0; i<line.length(); i++){
+        
+            newLine.append(line.charAt(i)).append(line.charAt(i));
+            
+        }
+        
+        System.out.println(newLine);
+        
+    }
+}
