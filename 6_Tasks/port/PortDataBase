@@ -1,0 +1,73 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class PortDataBase<E> {
+
+    private Queue<E> data = new LinkedList<E>();
+    
+    public synchronized void add(E e){
+    
+        while(this.data.size() >3){
+        
+            System.out.println("The port is overloaded, " + Thread.currentThread().getName() +
+                    " wait when shipping from the port");
+                    
+            try {
+            
+                wait();
+                
+            }catch (InterruptedException ex){
+            
+                ex.printStackTrace();
+                
+            }
+        }
+        
+        try {
+        
+            Thread.sleep(2000);
+            
+        }catch (InterruptedException ex){
+        
+            ex.printStackTrace();
+            
+        }
+        
+        this.data.add(e);
+        
+        System.out.println(Thread.currentThread().getName() + " delivered the cargo to the port, " +
+                " the current workload of the port" + this.data.size());
+                
+        notifyAll();
+        
+    }
+
+    public synchronized E del(){
+    
+        while(this.data.size() == 0){
+        
+            System.out.println("There is no cargo in the port, " + Thread.currentThread().getName() +
+                    " waite when cargo arrives at the port");
+                    
+            try{
+            
+                wait();
+                
+            }catch (InterruptedException ex){
+            
+                ex.printStackTrace();
+                
+            }
+        }
+        
+        E rsl = this.data.poll();
+        
+        System.out.println(Thread.currentThread().getName() + " made a shipment from the port, " +
+                "the current port occupancy " + this.data.size());
+                
+        notifyAll();
+        
+        return rsl;
+        
+    }
+}
