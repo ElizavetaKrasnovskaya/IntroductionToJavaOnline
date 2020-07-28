@@ -1,0 +1,171 @@
+package by.jonline.class8.customer;
+
+import java.util.Scanner;
+import java.util.*;
+
+public class Customer {
+
+    private String name;
+    private String surname;
+    private String patronymic;
+    private String address;
+    private String numberOfCreditCard;
+    private String numberOfAccount;
+    private int id;
+    private static int ID;
+
+    public Customer(String surname_, String name_, String patronymic_,
+                    String address_, String numberOfCreditCard_, String numberOfAccount_){
+                    
+        id = ID++;
+        surname = surname_;
+        name = name_;
+        patronymic = patronymic_;
+        address = address_;
+        numberOfCreditCard = numberOfCreditCard_;
+        numberOfAccount = numberOfAccount_;
+        
+    }
+
+    public String toString(){
+    
+        String line = id + ": " + surname + " " + name + " " + patronymic + " " + " - "
+                + address + ", " + numberOfCreditCard + ", " + numberOfAccount;
+                
+        return line;
+        
+    }
+
+    public void print(){
+    
+        System.out.println(toString());
+        
+    }
+
+    public void setSurname(String surname_){
+    
+        surname = surname_;
+        
+    }
+
+    public void setName(String name_){
+    
+        name = name_;
+        
+    }
+
+    public void setPatronymic(String patronymic_){
+    
+        patronymic = patronymic_;
+        
+    }
+
+    public void setAddress(String address_){
+    
+        address = address_;
+        
+    }
+
+    public void setNumberOfCreditCard(String numberOfCreditCard_){
+    
+        numberOfCreditCard = numberOfCreditCard_;
+        
+    }
+
+    public void setNumberOfAccount(String numberOfAccount_){
+    
+        numberOfAccount = numberOfAccount_;
+        
+    }
+
+    public int getId(){
+    
+        return id;
+        
+    }
+
+    public String getSurname(){
+    
+        return surname;
+        
+    }
+
+    public String getName(){
+    
+        return name;
+        
+    }
+
+    public String getPatronymic(){
+    
+        return patronymic;
+        
+    }
+
+    public String getAddress(){
+    
+        return address;
+        
+    }
+
+    public String getNumberOfCreditCard(){
+    
+        return numberOfCreditCard;
+        
+    }
+
+    public String getNumberOfAccount(){
+    
+        return numberOfAccount;
+        
+    }
+
+    public static Customer getCustomer(Scanner console){
+    
+        Customer customer = new Customer("", "", "",
+                "", "", "");
+                
+        System.out.print("Surname: ");
+        customer.name = console.next();
+        
+        System.out.print("Name: ");
+        customer.surname = console.next();
+
+        System.out.print("Patronymic: ");
+        customer.patronymic = console.next();
+
+        System.out.print("Address: ");
+        customer.address = console.next();
+
+        System.out.print("Number of credit card: ");
+        customer.numberOfCreditCard = console.next();
+
+        System.out.print("Bank account number: ");
+        customer.numberOfAccount = console.next();
+
+        return customer;
+        
+    }
+
+    public static class comparatorByName implements Comparator<Customer>{
+    
+        @Override
+        public int compare(Customer left, Customer right) {
+        
+            if(left.surname!=right.surname){
+            
+                return left.surname.compareTo(right.surname);
+                
+            }
+            
+            if(left.name!=right.name){
+            
+                return left.name.compareTo(right.name);
+                
+            }
+            
+            return left.patronymic.compareTo(left.patronymic);
+            
+        }
+    }
+}
