@@ -1,0 +1,47 @@
+package by.jonline.class7.point;
+
+import java.util.Scanner;
+
+public class Point {
+
+    public double x;
+    public double y;
+
+    public Point(double x_, double y_){
+    
+        x = x_;
+        y = y_;
+        
+    }
+
+    public Point(){
+    
+        this(0,0);
+        
+    }
+
+    public static double distance(Point a, Point b){
+    
+        double deltaX = a.x - b.x;
+        double deltaY = a.y - b.y;
+        
+        return Math.sqrt(deltaX*deltaX + deltaY*deltaY);
+        
+    }
+
+    public void print(){
+    
+        System.out.println("x: " + x + " y: " + y);
+        
+    }
+
+    public void read(Scanner console){
+    
+        System.out.println("Enter x: ");
+        x = console.nextDouble();
+        
+        System.out.println("Enter y: ");
+        y = console.nextDouble();
+        
+    }
+}
