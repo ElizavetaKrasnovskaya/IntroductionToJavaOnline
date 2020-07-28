@@ -1,0 +1,51 @@
+package by.jonline.string3.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        isPalindrome(line);
+        
+    }
+
+    public static void isPalindrome(String line) {
+    
+        String newLine = formingNewLine(line);
+        
+        if(newLine.equals(new StringBuilder(newLine).reverse().toString())){
+        
+            System.out.println("This phrase is a palindrome");
+            
+        }else{
+        
+            System.out.println("This phrase isn't a palindrome");
+            
+        }
+    }
+
+    public static String formingNewLine(String line) {
+    
+        StringBuilder newLine = new StringBuilder();
+        
+        for(int i=0; i<line.length(); i++) {
+        
+            if (line.charAt(i) == ' ') {
+            
+            } else {
+            
+                newLine.append(line.charAt(i));
+                
+            }
+        }
+        
+        return newLine.toString();
+        
+    }
+}
