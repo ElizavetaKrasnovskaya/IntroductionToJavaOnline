@@ -1,0 +1,28 @@
+package by.jonline.class2.main;
+
+import by.jonline.class2.test2.Test2;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+	      Test2 test = new Test2();
+        System.out.println("Enter a and b: ");
+        int number1 = console.nextInt();
+        int number2 = console.nextInt();
+
+        test.set_a(number1);
+        test.set_b(number2);
+        System.out.println("a: " + test.get_a());
+        System.out.println("b: " + test.get_b());
+
+        System.out.println("New parameters");
+        test = new Test2(10, 20);
+        System.out.println("a: " + test.get_a());
+        System.out.println("b: " + test.get_b());
+        
+    }
+}
