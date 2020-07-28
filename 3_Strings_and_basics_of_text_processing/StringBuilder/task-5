@@ -1,0 +1,28 @@
+package by.jonline.string5.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        int count = 0;
+        
+        for(int i=0; i<line.length(); i++){
+        
+            if(line.charAt(i) == 'a'){
+            
+                count++;
+                
+            }
+        }
+        
+        System.out.println("Amount of letter 'a' is " + count);
+        
+    }
+}
