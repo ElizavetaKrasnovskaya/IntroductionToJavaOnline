@@ -1,0 +1,36 @@
+package by.jonline.chararrray3.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        System.out.println("Amount of digits in line is " + countingDigits(line));
+        
+    }
+
+    public static int countingDigits(String line) {
+    
+        int count = 0;
+        
+        char[] array = line.toCharArray();
+        
+        for(int i=0; i<array.length; i++){
+        
+            if(Character.isDigit(array[i])){
+            
+                count ++;
+                
+            }
+        }
+        
+        return count;
+        
+    }
+}
