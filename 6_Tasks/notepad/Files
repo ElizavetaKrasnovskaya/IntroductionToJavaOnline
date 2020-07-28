@@ -1,0 +1,108 @@
+package model;
+
+import java.io.*;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class Files {
+
+    private File directory = new File("C:/Users/User/Desktop/notepad");
+    private File notes;
+
+    public String[] readingFiles(){
+    
+        String[] arrayOfNotes = new String[directory.listFiles().length];
+        
+        for(int i=0; i<directory.listFiles().length; i++){
+        
+            notes = new File("C:/Users/User/Desktop/notepad/note" + (i+1) + ".txt");
+            
+            arrayOfNotes[i] = "";
+            
+            try (FileReader reader = new FileReader(notes)){
+            
+                int c;
+                
+                while((c=reader.read())!=-1){
+                
+                    arrayOfNotes[i] += (char)c ;
+                    
+                }
+            }catch (IOException ex){
+            
+                ex.printStackTrace();
+                
+            }
+        }
+        
+        return arrayOfNotes;
+        
+    }
+
+    public String[][] formingNotes(){
+    
+        String[][] note = new String[readingFiles().length][3];
+        Pattern pattern = Pattern.compile("\n");
+        
+        for(int i=0; i<readingFiles().length; i++){
+        
+            note[i] = pattern.split(readingFiles()[i]);
+            
+        }
+        
+        return note;
+        
+    }
+
+    public void writer(Scanner scanner) {
+    
+        notes = new File("C:/Users/User/Desktop/notepad/note" + (directory.listFiles().length +1) + ".txt");
+        
+        try (FileWriter writer = new FileWriter(notes)) {
+        
+            System.out.println("Enter topic");
+            writer.write(scanner.nextLine());
+            writer.write("\n");
+            
+            System.out.println("Enter date of creation (format: 01.01.2000)");
+            String dateOfCreation = scanner.next();
+            
+            if(dateOfCreation.length() != 10 & dateOfCreation.indexOf(2) != '.' & dateOfCreation.indexOf(5) != '.'){
+            
+                System.out.println("Enter date of creation (format: 01.01.2000)");
+                dateOfCreation = scanner.next();
+                
+            }else {
+            
+                writer.write(dateOfCreation);
+                writer.write("\n");
+                
+            }
+            
+            System.out.println("Enter mail (format somebody@epam.com)");
+            String mail = scanner.next();
+            
+            if(!mail.contains("@") & !mail.endsWith(".com")){
+            
+                System.out.println("Enter mail (format somebody@epam.com)");
+                mail = scanner.next();
+                
+            }else {
+            
+                writer.write(mail);
+                writer.write("\n");
+                
+            }
+            
+            System.out.println("Enter message");
+            scanner = new Scanner(System.in);
+            writer.write(scanner.nextLine());
+            writer.write("\n");
+            
+        } catch (IOException ex) {
+        
+            ex.printStackTrace();
+            
+        }
+    }
+}
