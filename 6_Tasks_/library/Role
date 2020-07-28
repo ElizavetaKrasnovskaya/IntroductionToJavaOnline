@@ -1,0 +1,54 @@
+package controller;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Role {
+
+    private String name;
+    private File catalog = new File("C:/Users/User/Desktop/library/catalog.txt");
+    private File file;
+
+    public void browseCatalog(){
+    
+        try (FileReader reader = new FileReader(catalog)){
+        
+            int c;
+            
+            while((c=reader.read())!=-1){
+            
+                System.out.print((char)c);
+                
+            }
+        }catch (IOException ex){
+        
+            ex.printStackTrace();
+            
+        }
+    }
+
+    public void searchByName(Scanner scanner){
+    
+        System.out.println("Enter name of book");
+        
+        file = new File("C:/Users/User/Desktop/library/" + scanner.nextLine() + ".txt");
+        
+        try (FileReader reader = new FileReader(file)){
+        
+            int c;
+            
+            while((c=reader.read())!=-1){
+            
+                System.out.print((char)c);
+                
+            }
+        }catch (IOException ex){
+        
+            ex.printStackTrace();
+            
+        }
+        
+        System.out.println();
+        
+    }
+}
