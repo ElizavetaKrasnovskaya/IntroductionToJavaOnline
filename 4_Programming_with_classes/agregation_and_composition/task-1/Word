@@ -1,0 +1,25 @@
+package by.jonline.agregation1.word;
+
+public class Word {
+
+    private String value;
+
+    public Word(String value_){
+    
+        value = value_;
+        
+    }
+
+    public String toString(){
+    
+        String line = value;
+        return line;
+        
+    }
+
+    public String getValue(){
+    
+        return value;
+        
+    }
+}
