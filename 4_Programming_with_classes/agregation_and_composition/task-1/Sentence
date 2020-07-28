@@ -1,0 +1,33 @@
+package by.jonline.agregation1.sentence;
+
+import by.jonline.agregation1.word.Word;
+
+public class Sentence {
+
+    private String value;
+
+    public Sentence(String value_){
+    
+        value = value_;
+        
+    }
+
+    public String getValue(){
+    
+        return value;
+        
+    }
+
+    public void addWord(Word word){
+    
+        value += word.getValue();
+        
+    }
+
+    public String toString(){
+    
+        String line = value;
+        return line;
+        
+    }
+}
