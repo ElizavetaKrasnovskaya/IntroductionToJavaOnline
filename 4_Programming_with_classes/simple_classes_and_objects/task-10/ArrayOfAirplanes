@@ -1,0 +1,78 @@
+package by.jonline.class10.arrayofarrays;
+
+import by.jonline.class10.airplane.Airplane;
+
+public class ArrayOfAirplanes {
+
+    private Airplane[] airplanes;
+    private int capacity;
+    private int size;
+
+    public ArrayOfAirplanes(int capacity_){
+    
+        size = 0;
+        capacity = capacity_;
+        airplanes = new Airplane[capacity];
+    }
+
+    public ArrayOfAirplanes(){
+    
+        this(10);
+        
+    }
+
+    public void fillingArray(Airplane airplane){
+    
+        if(size<capacity){
+        
+            airplanes[size] = airplane;
+            size++;
+            
+        }
+    }
+
+    public void print(){
+    
+        for(int i=0; i<size; i++){
+        
+            airplanes[i].print();
+            
+        }
+    }
+
+    public void printIfDestinationMatch(String a){
+    
+        for(int i=0; i<size; i++){
+        
+            if(airplanes[i].getDestination().compareTo(a) == 0){
+            
+                airplanes[i].print();
+                
+            }
+        }
+    }
+
+    public void printIfDaysOfWeekMatch(String a){
+    
+        for(int i=0; i<size; i++){
+        
+            if(airplanes[i].getDaysOfWeek().compareTo(a) == 0){
+            
+                airplanes[i].print();
+                
+            }
+        }
+    }
+
+    public void printIfDaysOfWeekAndDepartureTimeBigger(String a, String b){
+    
+        for(int i=0; i<size; i++){
+        
+            if(airplanes[i].getDaysOfWeek().compareTo(a) > 0 &
+                    airplanes[i].getDepartureTime().compareTo(b) > 0){
+                airplanes[i].print();
+                
+            }
+        }
+    }
+}
