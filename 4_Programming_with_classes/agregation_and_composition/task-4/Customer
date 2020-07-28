@@ -1,0 +1,99 @@
+package by.jonline.agregation4.customer;
+
+import by.jonline.agregation4.account.Account;
+
+public class Customer {
+
+    private String name;
+    private String surname;
+    private Account[] accounts;
+    private double balanceAllAccounts;
+    private double balancePositiveAccounts;
+    private double balanceNegativeAccounts;
+
+    public Customer(String surname_, String name_){
+    
+        surname = surname_;
+        name = name_;
+        
+    }
+
+    public void setAccounts(Account[] accounts_){
+    
+        accounts = accounts_;
+        
+    }
+
+    public Account[] getAccounts(){
+    
+        return accounts;
+        
+    }
+
+    public double getBalanceAllAccounts() {
+    
+        for(int i=0; i<accounts.length; i++){
+        
+            balanceAllAccounts += accounts[i].getBalance();
+            
+        }
+        
+        return balanceAllAccounts;
+        
+    }
+
+    public double getBalancePositiveAccounts() {
+    
+        for(int i=0; i<accounts.length; i++){
+        
+            if(accounts[i].getBalance()>0) {
+            
+                balancePositiveAccounts += accounts[i].getBalance();
+                
+            }
+        }
+        
+        return balancePositiveAccounts;
+        
+    }
+
+    public double getBalanceNegativeAccounts() {
+    
+        for(int i=0; i<accounts.length; i++){
+        
+            if(accounts[i].getBalance()<0) {
+            
+                balanceNegativeAccounts += accounts[i].getBalance();
+                
+            }
+        }
+        
+        return balanceNegativeAccounts;
+        
+    }
+
+    public Account[] sortingAccounts(){
+    
+        for(int i=0; i<accounts.length; i++){
+        
+            for(int k=1; k<accounts.length; k++){
+            
+                if(accounts[i].getBalance()<accounts[k].getBalance()){
+                
+                    double tempBalance = accounts[i].getBalance();
+                    String tempNumber = accounts[i].getNumberOfAccount();
+                    
+                    accounts[i].setBalance(accounts[k].getBalance());
+                    accounts[i].setNumberOfAccount(accounts[k].getNumberOfAccount());
+                    
+                    accounts[k].setBalance(tempBalance);
+                    accounts[k].setNumberOfAccount(tempNumber);
+                }
+            }
+        }
+        
+        return accounts;
+        
+    }
+
+}
