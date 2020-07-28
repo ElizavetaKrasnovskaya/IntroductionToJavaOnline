@@ -1,0 +1,78 @@
+import by.jonline.class9.book.Book;
+
+public class ArrayOfBooks {
+
+    private Book[] books;
+    private int size;
+    private int capacity;
+
+    public ArrayOfBooks(int capacity_){
+    
+        size = 0;
+        capacity = capacity_;
+        books = new Book[capacity];
+        
+    }
+
+    public ArrayOfBooks(){
+    
+        this(10);
+        
+    }
+
+    public void fillingArray(Book book){
+    
+        if (size < capacity) {
+        
+            books[size] = book;
+            size++;
+            
+        }
+    }
+
+    public void print(){
+    
+        for(int i=0; i<size; i++){
+        
+            books[i].print();
+            
+        }
+    }
+
+    public void printIfAuthorMatch(String a){
+    
+        for(int i=0; i<size; i++){
+        
+            if(books[i].getAuthor().compareTo(a) == 0){
+            
+                books[i].print();
+                
+            }
+        }
+    }
+
+    public void printIfPublishingHouseMatch(String a){
+    
+        for(int i=0; i<size; i++){
+        
+            if(books[i].getPublishingHouse().compareTo(a) == 0){
+            
+                books[i].print();
+                
+            }
+        }
+    }
+
+    public void printIfYearBigger(String a){
+    
+        for(int i=0; i<size; i++){
+        
+            if(books[i].getYearOfPublishing().compareTo(a) > 0){
+            
+                books[i].print();
+                
+            }
+        }
+    }
+
+}
