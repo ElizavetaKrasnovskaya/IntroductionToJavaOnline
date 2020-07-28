@@ -1,0 +1,84 @@
+package by.jonline.method16.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter number: ");
+        int number = console.nextInt();
+        
+        System.out.println("Sum of uneven digits of number: " + findingSum(number));
+        System.out.println("Counter of even digits of number: " + counterOfEvenDigits(number));
+        
+    }
+
+    public static int[] formingArray(int n) {
+    
+        int size=0;
+        int divider = 1;
+        
+        while (divider <= n){
+        
+            divider*=10;
+            size++;
+            
+        }
+        
+        divider/=10;
+        
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            array[i] = n/divider;
+            n-=divider*array[i];
+            divider /=10;
+            
+        }
+        
+        return array;
+        
+    }
+
+    public static int findingSum(int n) {
+    
+        int[] array = formingArray(n);
+        
+        int sum = 0;
+        
+        for(int i=0; i<array.length; i++){
+        
+            if(array[i]%2!=0){
+            
+                sum+=array[i];
+                
+            }
+        }
+        
+        return sum;
+        
+    }
+
+    public static int counterOfEvenDigits(int n) {
+    
+        int counter=0;
+        
+        int[] array = formingArray(n);
+        
+        for(int i=0; i<array.length; i++){
+        
+            if(array[i]%2==0){
+            
+                counter++;
+                
+            }
+        }
+        
+        return counter;
+        
+    }
+}
