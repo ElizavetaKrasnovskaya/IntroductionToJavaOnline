@@ -1,0 +1,60 @@
+package by.jonline.method12.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter K, N and size of array: ");
+        int K = console.nextInt();
+        int N = console.nextInt();
+        int size = console.nextInt();
+        
+        formingArray(size, N, K);
+        
+    }
+
+    public static void formingArray(int size, int N, int K) {
+    
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            int temp = (int)(Math.random()*N);
+            
+            if(sum(temp) == K){
+            
+                array[i] = temp;
+                
+            }else{
+            
+                i--;
+                
+            }
+        }
+        
+        for(int i=0; i<size; i++){
+        
+            System.out.print(array[i] + "\t");
+            
+        }
+    }
+    
+    public static int sum(int N) {
+    
+        int result = 0;
+        
+        while (N>0){
+        
+          result += N % 10;
+          N = N/10;
+          
+        }
+        
+        return result;
+        
+    }
+}
