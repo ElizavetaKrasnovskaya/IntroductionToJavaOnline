@@ -1,0 +1,26 @@
+package model;
+
+public class Tulip implements Flower {
+
+    private final String name = "Tulip";
+    private final int price = 6;
+    private final Color color = Color.Yellow;
+
+    public String getName(){
+    
+        return name;
+        
+    }
+
+    public int getPrice(){
+    
+        return price;
+        
+    }
+
+    public Color getColor(){
+    
+        return color;
+        
+    }
+}
