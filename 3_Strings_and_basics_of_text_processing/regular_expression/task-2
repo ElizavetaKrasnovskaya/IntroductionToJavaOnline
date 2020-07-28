@@ -1,0 +1,93 @@
+package by.jonline.pattern2.main;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        String xmlDocument = "<notes>\n" +
+                "    <note id = \"1\">\n" +
+                "        <to> Вася </to>\n" +
+                "        <from> Света </from>\n" +
+                "        <heading> Напоминание </heading>\n" +
+                "        <body> Позвони мне завтра! </body>\n" +
+                "    </note>\n" +
+                "    <note id = \"2\">\n" +
+                "        <to> Петя </to>\n" +
+                "        <from> Маша </from>\n" +
+                "        <heading> Важное напоминание </heading>\n" +
+                "        <body/>\n" +
+                "    </note>\n" +
+                "</notes>";
+                
+        Pattern pattern = Pattern.compile("\\n");
+        
+        String[] line = pattern.split(xmlDocument);
+        
+        for(int i=0; i<line.length; i++){
+        
+            splitByWords(line[i]);
+            System.out.println();
+            
+        }
+    }
+
+    public static void splitByWords(String line) {
+    
+        Pattern pattern = Pattern.compile("\\s");
+        
+        String[] word = pattern.split(line);
+        
+        for(int i=0; i<word.length; i++){
+        
+            Pattern patternOfId = Pattern.compile("<.+[=].+>");
+            Matcher matcherOfId = patternOfId.matcher(line);
+
+            if(matcherOfId.find()) {
+            
+                System.out.print("Opening tag " + line.substring(matcherOfId.start(), matcherOfId.end()));
+                break;
+                
+            }
+            
+            analyzer(word[i]);
+            
+        }
+    }
+
+    public static void analyzer(String word) {
+    
+        Pattern patternOpeningTag = Pattern.compile("<[^/]+>");
+        Matcher matcherOpeningTag = patternOpeningTag.matcher(word);
+
+        Pattern patternOfBody = Pattern.compile("[^<]");
+        Matcher matcherOfBody = patternOfBody.matcher(word);
+
+        Pattern patternClosingTag = Pattern.compile("<[/].+>");
+        Matcher matcherClosingTag = patternClosingTag.matcher(word);
+
+        Pattern patternTagWithoutBody = Pattern.compile("<.+[/>]");
+        Matcher matcherTagWithoutBody = patternTagWithoutBody.matcher(word);
+
+        if(matcherOpeningTag.find()){
+        
+            System.out.print("Opening tag " + word.substring(matcherOpeningTag.start(), matcherOpeningTag.end()) + " ");
+            
+        }else if(matcherClosingTag.find()){
+        
+            System.out.print("Closing tag " + word.substring(matcherClosingTag.start(), matcherClosingTag.end()));
+            
+        }else if(matcherTagWithoutBody.find()) {
+        
+            System.out.print("Tag without body " + word.substring(matcherTagWithoutBody.start(), matcherTagWithoutBody.end()));
+            
+        }else if(matcherOfBody.find()) {
+        
+            System.out.print(word + " ");
+            
+        }
+    }
+
+}
