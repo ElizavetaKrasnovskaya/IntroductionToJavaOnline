@@ -1,0 +1,42 @@
+package by.jonline.agregation1.text;
+
+import by.jonline.agregation1.word.Word;
+import by.jonline.agregation1.sentence.Sentence;
+
+public class Text {
+
+    private String title;
+    private String body;
+
+    public Text(String title_, String body_){
+    
+        title = title_;
+        body = body_;
+        
+    }
+
+    public void addTitle(Word word){
+    
+        title += " " + word.getValue();
+        
+    }
+
+    public String getTitle(){
+    
+        return title;
+        
+    }
+
+    public void addBody(Sentence sentence){
+    
+        body += " " + sentence.getValue();
+        
+    }
+
+    public String getBody(){
+    
+        return body;
+        
+    }
+
+}
