@@ -1,0 +1,60 @@
+package by.jonline.agregation4.account;
+
+public class Account {
+
+    private String numberOfAccount;
+    private double balance;
+
+    public Account(String numberOfAccount_){
+    
+        numberOfAccount = numberOfAccount_;
+        
+    }
+
+    public void setBalance(double balance_){
+    
+        balance = balance_;
+    }
+
+    public void setNumberOfAccount(String numberOfAccount_){
+    
+        numberOfAccount = numberOfAccount_;
+        
+    }
+
+    public double getBalance(){
+    
+        return balance;
+        
+    }
+
+    public String getNumberOfAccount(){
+    
+        return numberOfAccount;
+        
+    }
+
+    public void addBalance(double value){
+    
+        balance +=value;
+        
+    }
+
+    public void blockAccount(){
+    
+        if(balance<0){
+        
+            System.out.println("Account is blocked. Add money");
+            
+        }
+    }
+
+    public void unlockedAccount(){
+    
+        if(balance>=0){
+        
+            System.out.println("Account is unlocked");
+            
+        }
+    }
+}
