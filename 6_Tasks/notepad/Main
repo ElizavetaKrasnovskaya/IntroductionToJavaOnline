@@ -1,0 +1,40 @@
+package view;
+
+import controller.User;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        User user = new User();
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        while(true){
+        
+            System.out.println("Enter 1, 2, 3, 4, 5, 6, 7, 8 or 9");
+            System.out.println("1 - create new file");
+            System.out.println("2 - finding note by topic");
+            System.out.println("3 - finding note by date of creation");
+            System.out.println("4 - finding note by mail");
+            System.out.println("5 - finding note by word in message");
+            System.out.println("6 - finding note by topic and date");
+            System.out.println("7 - finding note by topic and mail");
+            System.out.println("8 - sorting topics by alphabet");
+            System.out.println("9 - exit");
+            
+            int choice = scanner.nextInt();
+            
+            if(choice == 9){
+            
+                break;
+                
+            }
+            
+            user.switchCase(choice);
+            
+        }
+    }
+}
