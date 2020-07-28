@@ -1,0 +1,38 @@
+package by.jonline.string2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+	      String line = console.nextLine();
+        
+        System.out.println("New line: " + formingNewLine(line));
+        
+    }
+
+    public static StringBuilder formingNewLine(String line) {
+    
+        StringBuilder newLine = new StringBuilder();
+        
+        for(int i=0; i< line.length(); i++){
+        
+            if(line.charAt(i) == 'a'){
+            
+                newLine.append(line.charAt(i)).append('b');
+                
+            }else{
+            
+                newLine.append(line.charAt(i));
+                
+            }
+        }
+        
+        return newLine;
+        
+    }
+}
