@@ -1,0 +1,39 @@
+package by.jonline.string8.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        System.out.println(findingMaxLength(line));
+        
+    }
+
+    public static String findingMaxLength(String line) {
+    
+        String[] subString = line.split(" ");
+        
+        int index = 0;
+        
+        for(int i=0; i<subString.length; i++){
+        
+            for(int k=i+1;k<subString.length; k++) {
+            
+                if (subString[i].length() > subString[k].length()) {
+                
+                    index = i;
+                    
+                }
+            }
+        }
+        
+        return subString[index];
+        
+    }
+}
