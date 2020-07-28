@@ -1,0 +1,26 @@
+package model;
+
+public class Crown extends Treasure {
+
+    private String name;
+    private int cost;
+
+    public Crown(){
+    
+        name = "crown";
+        cost = 100;
+        
+    }
+
+    public int getCost() {
+    
+        return cost;
+        
+    }
+
+    public String getName() {
+    
+        return name;
+        
+    }
+}
