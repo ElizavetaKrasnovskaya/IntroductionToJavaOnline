@@ -1,0 +1,62 @@
+package by.jonline.class8.arrayofcustomers;
+
+import by.jonline.class8.customer.Customer;
+
+import java.util.Arrays;
+
+public class ArrayOfCustomers {
+
+    private Customer[] customers;
+    private int size;
+    private int capacity;
+
+    public ArrayOfCustomers(int capacity_){
+    
+        size = 0;
+        capacity = capacity_;
+        customers = new Customer[capacity];
+        
+    }
+
+    public ArrayOfCustomers(){
+    
+        this(5);
+        
+    }
+
+    public void fillingArray(Customer customer){
+    
+        if (size < capacity) {
+        
+            customers[size] = customer;
+            size++;
+            
+        }
+    }
+
+    public void print(){
+    
+        for(int i=0; i<size; i++){
+        
+            customers[i].print();
+            
+        }
+    }
+
+    public void sortByName(){
+    
+        Arrays.sort(customers,0, size,new Customer.comparatorByName());
+        
+    }
+
+    public void printIfCardIn(String a, String b) {
+    
+        for (int i = 0; i < size; ++i) {
+        
+            if (customers[i].getNumberOfCreditCard().compareTo(a) >= 0 &&
+                    customers[i].getNumberOfCreditCard().compareTo(b) <= 0)
+                customers[i].print();
+                
+        }
+    }
+}
