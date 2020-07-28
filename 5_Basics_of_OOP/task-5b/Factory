@@ -1,0 +1,44 @@
+package controller;
+
+import model.*;
+
+public class Factory {
+
+    public Sweets getCurrentSweets(int choice){
+    
+        Sweets sweet = null;
+        
+        if(choice == 1){
+        
+            sweet = new Candy();
+            
+        }
+        
+        if(choice == 2){
+        
+            sweet = new Chocolate();
+            
+        }
+        
+        if(choice == 3){
+        
+            sweet = new Marshmallow();
+            
+        }
+        
+        if(choice == 4){
+        
+            sweet = new Packaging();
+            
+        }
+        
+        if(choice == 5){
+        
+            sweet = new Wafer();
+            
+        }
+        
+        return sweet;
+        
+    }
+}
