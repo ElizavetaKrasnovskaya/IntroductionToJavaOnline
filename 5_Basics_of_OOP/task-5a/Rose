@@ -1,0 +1,26 @@
+package model;
+
+public class Rose implements Flower {
+
+    private final String name = "Rose";
+    private final int price = 8;
+    private final Color color = Color.Red;
+
+    public String getName(){
+    
+        return name;
+        
+    }
+
+    public int getPrice(){
+    
+        return price;
+        
+    }
+
+    public Color getColor(){
+    
+        return color;
+        
+    }
+}
