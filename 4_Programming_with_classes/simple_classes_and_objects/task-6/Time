@@ -1,0 +1,88 @@
+package by.jonline.class6.time;
+
+public class Time {
+
+    private int seconds;
+    private int minutes;
+    private int hours;
+
+    public Time(int seconds_, int minutes_, int hours_){
+    
+        if(hours_<0 | hours_>23){
+        
+            hours = 0;
+            
+        }else{
+        
+            hours = hours_;
+            
+        }
+        
+        if(minutes_<0 | minutes_>59){
+        
+            minutes = 0;
+            
+        }else{
+        
+            minutes = minutes_;
+            
+        }
+        
+        if(seconds_<0 | seconds_>59){
+        
+            seconds = 0;
+            
+        }else{
+        
+            seconds = seconds_;
+            
+        }
+    }
+
+    public Time(){
+    
+        this(0,0,0);
+        
+    }
+
+    public int hours() {
+    
+        return hours;
+        
+    }
+
+    public int minutes() {
+    
+        return minutes;
+        
+    }
+
+    public int seconds() {
+    
+        return seconds;
+        
+    }
+
+    public void add_seconds(int seconds_){
+    
+        seconds += seconds_;
+        minutes += seconds/60;
+        seconds = seconds %60;
+        hours += minutes/60;
+        minutes = minutes %60;
+        hours = hours%24;
+        
+    }
+
+    public void add_minutes(int minutes_){
+    
+        add_seconds(minutes_*60);
+        
+    }
+
+    public void add_hours(int hours_){
+    
+        add_seconds(hours_*60*60);
+        
+    }
+}
