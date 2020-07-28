@@ -1,0 +1,48 @@
+package by.jonline.class3.main;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	    int n = 10;
+      
+    	Student[] student = new Student[n];
+      
+    	student[0] = new Student("Drozdova", "R.V.", 2);
+    	student[1] = new Student("Ananenko", "A.A.", 2);
+    	student[2] = new Student("Savchenko", "A.R.", 2);
+    	student[3] = new Student("Krez", "K.S.", 1);
+    	student[4] = new Student("Shimchuk", "I.A", 1);
+    	student[5] = new Student("Belov", "D.A.", 2);
+	    student[6] = new Student("Petrov", "A.A", 2);
+    	student[7] = new Student("Shumak", "E.A.", 1);
+	    student[8] = new Student("Ivanov", "P.P", 2);
+	    student[9] = new Student("Mazan", "K.A.", 1);
+      
+	    for(int i=0; i<n; i++){
+      
+	          student[i].addGrade((int)(Math.random()*6 + 5));
+            student[i].addGrade((int)(Math.random()*6 + 5));
+            
+        }
+        
+        System.out.println("All students: ");
+        
+	      for(int i=0; i<n; i++){
+        
+	        student[i].print();
+          
+        }
+
+        System.out.println("Good students: ");
+        
+	      for(int i=0; i<n; i++){
+        
+	        if(student[i].isGood()){
+          
+	            student[i].print();
+              
+            }
+        }
+    }
+}
