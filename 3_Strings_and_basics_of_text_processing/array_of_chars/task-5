@@ -1,0 +1,30 @@
+package by.jonline.chararrray5.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        formattedLine(line);
+        
+    }
+
+    public static void formattedLine(String line) {
+    
+        while (line.contains("  ")){
+        
+            String replace = line.replace("  ", " ");
+            line = replace;
+            
+        }
+        
+        System.out.println(line);
+        
+    }
+}
