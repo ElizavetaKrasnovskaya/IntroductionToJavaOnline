@@ -1,0 +1,71 @@
+package by.jonline.agregation1.main;
+
+import by.jonline.agregation1.word.Word;
+import by.jonline.agregation1.sentence.Sentence;
+import by.jonline.agregation1.text.Text;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        Text text = new Text("","");
+
+        while(true) {
+        
+            System.out.println("Enter 1, 2, 3, 4 or 5 ");
+            System.out.println("1 - add title");
+            System.out.println("2 - add text");
+            System.out.println("3 - print text");
+            System.out.println("4 - print title");
+            System.out.println("5 - exit");
+
+            int choice = console.nextInt();
+            
+            if(choice == 5){
+            
+                break;
+                
+            }
+            
+            switch (choice){
+            
+                case 1:
+                
+                    System.out.println("Enter title: ");
+                    Word word = new Word(console.next());
+                    
+                    text.addTitle(word);
+                    break;
+                    
+                case 2:
+                
+                    System.out.print("Enter text: ");
+                    Sentence sentence = new Sentence("");
+                    
+                    for(int i=0; i<10; i++){
+                    
+                        Word wordInSentence = new Word(console.next());
+                        sentence.addWord(wordInSentence);
+                        
+                    }
+                    
+                    text.addBody(sentence);
+                    break;
+                    
+                case 3:
+                
+                    System.out.println(text.getBody() + " ");
+                    break;
+                    
+                case 4:
+                
+                    System.out.println(text.getTitle());
+                    break;
+                    
+            }
+        }
+    }
+}
