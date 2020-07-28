@@ -1,0 +1,49 @@
+package by.jonline.chararray1.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        formingNewString(line);
+        
+    }
+
+    public static void formingNewString(String line) {
+    
+        String newLine = formingArray(line).toString();
+        
+        newLine = newLine.toLowerCase();
+        System.out.println(newLine);
+        
+    }
+
+    public static StringBuilder formingArray(String line) {
+    
+        char[] array = line.toCharArray();
+        
+        StringBuilder newLine = new StringBuilder();
+        
+        for(int i=0; i<array.length;i++){
+        
+            if(array[i]<91){
+            
+                newLine.append('_').append(array[i]);
+                
+            }else{
+            
+                newLine.append(array[i]);
+                
+            }
+        }
+        
+        return newLine;
+        
+    }
+}
