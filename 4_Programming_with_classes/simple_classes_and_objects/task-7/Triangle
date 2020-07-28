@@ -1,0 +1,61 @@
+package by.jonline.class7.triangle;
+
+import by.jonline.class7.point.Point;
+
+public class Triangle {
+
+    private Point a;
+    private Point b;
+    private Point c;
+
+    public Triangle(Point a_, Point b_, Point c_){
+    
+        a = a_;
+        b = b_;
+        c = c_;
+        
+    }
+
+    public double square(){
+    
+        double ab = Point.distance(a, b);
+        double bc = Point.distance(b, c);
+        double ac = Point.distance(a, c);
+        
+        double p = (ab+bc+ac)/2;
+        
+        double result = Math.sqrt(p*(p-ab)*(p-bc)*(p-ac));
+        
+        return result;
+        
+    }
+
+    public double perimeter(){
+    
+        double ab = Point.distance(a, b);
+        double bc = Point.distance(b, c);
+        double ac = Point.distance(a, c);
+        
+        double result = ab+bc+ac;
+        
+        return result;
+        
+    }
+
+    public Point crossingOfMedian(){
+    
+        return new Point((a.x+b.x+c.x)/3, (a.y+b.y+c.y)/3);
+        
+    }
+
+    public void print() {
+    
+        System.out.print("Enter a: ");
+        a.print();
+        System.out.print("Enter b: ");
+        b.print();
+        System.out.print("Enter c: ");
+        c.print();
+        
+    }
+}
