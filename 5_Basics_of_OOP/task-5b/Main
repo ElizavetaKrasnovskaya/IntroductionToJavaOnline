@@ -1,0 +1,62 @@
+package view;
+
+import controller.Factory;
+import model.Sweets;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        
+        Sweets[] sweets = new Sweets[20];
+        
+        int i=0;
+        int sum = 0;
+        
+        while(true){
+        
+            System.out.println("Enter 1, 2, 3, 4, 5, 6 or 7");
+            System.out.println("1 - add candy");
+            System.out.println("2 - add chocolate");
+            System.out.println("3 - add marshmallow");
+            System.out.println("4 - add wafer");
+            System.out.println("5 - add packaging");
+            System.out.println("6 - present");
+            System.out.println("7 - exit");
+            
+            int choice = scanner.nextInt();
+            
+            if(choice == 7){
+            
+                break;
+                
+            }
+            
+            Factory factory = new Factory();
+            
+            sweets[i] = factory.getCurrentSweets(choice);
+
+            if(choice<6 & choice>0){
+            
+                i++;
+                
+            }
+
+            if(choice == 6){
+            
+                for(int j=0; j<i; j++){
+                
+                    System.out.println(sweets[j].getName());
+                    sum += sweets[j].getPrice();
+                    
+                }
+                
+                System.out.println("Total price: " + sum);
+                
+            }
+        }
+    }
+}
