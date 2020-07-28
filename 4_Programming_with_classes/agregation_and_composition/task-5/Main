@@ -1,0 +1,123 @@
+package by.jonline.agregation5.main;
+
+import by.jonline.agregation5.cruise.Cruise;
+import by.jonline.agregation5.excursion.Excursion;
+import by.jonline.agregation5.rest.Rest;
+import by.jonline.agregation5.shopping.Shopping;
+import by.jonline.agregation5.certificate.TravelingCertificate;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        TravelingCertificate travelingCertificate = new TravelingCertificate();
+
+        Cruise cruise1 = new Cruise("New York", 2000,
+                12, "plane", "breakfast");
+        Cruise cruise2 = new Cruise("Venice", 1700,
+                20, "bus", "breakfast");
+
+        Excursion excursion1 = new Excursion("St. Petersburg", 500,
+                7, "train", "no");
+
+        Excursion excursion2 = new Excursion("Moscow", 700,
+                7, "plane", "lunch");
+
+        Rest rest1 = new Rest("Ankara", 1000,
+                12, "bus", "breakfast");
+
+        Rest rest2 = new Rest("Odessa", 800,
+                20, "train", "no");
+
+        Shopping shopping1 = new Shopping("Istanbul", 800,
+                10, "plane", "dinner");
+
+        Shopping shopping2 = new Shopping("Milan", 1200,
+                20, "plane", "no");
+
+        travelingCertificate.setCruises(new Cruise[] {cruise1, cruise2});
+        travelingCertificate.setExcursions(new Excursion[] {excursion1, excursion2});
+        travelingCertificate.setRests(new Rest[] {rest1, rest2});
+        travelingCertificate.setShopping(new Shopping[] {shopping1, shopping2});
+
+        while (true){
+        
+            System.out.println("Enter 1, 2, 3, 4, 5, 6, 7, 8 or 9");
+            System.out.println("1 - information about cruises: ");
+            System.out.println("2 - information about excursions: ");
+            System.out.println("3 - information about rests: ");
+            System.out.println("4 - information about shopping: ");
+            System.out.println("5 - sorting traveling certificate by cost");
+            System.out.println("6 - searching by transport");
+            System.out.println("7 - searching by food");
+            System.out.println("8 - amount of days");
+            System.out.println("9 - exit");
+
+            int choice = scanner.nextInt();
+            
+            if(choice == 9){
+            
+                break;
+                
+            }
+
+            switch (choice){
+            
+                case 1:
+                
+                    System.out.println(cruise1.toString());
+                    System.out.println(cruise2.toString());
+                    break;
+
+                case 2:
+                
+                    System.out.println(excursion1.toString());
+                    System.out.println(excursion2.toString());
+                    break;
+
+                case 3:
+                
+                    System.out.println(rest1.toString());
+                    System.out.println(rest2.toString());
+                    break;
+
+                case 4:
+                
+                    System.out.println(shopping1.toString());
+                    System.out.println(shopping2.toString());
+                    break;
+
+                case 5:
+                
+                    System.out.println("Enter max value: ");
+                    travelingCertificate.sortingByCost(scanner.nextDouble());
+                    break;
+
+                case 6:
+                
+                    System.out.println("Enter type of transport: bus, train, plane");
+                    String transport = scanner.next();
+                    travelingCertificate.sortingByTransport(transport);
+                    break;
+                    
+                case 7:
+                
+                    System.out.println("Enter type of food: breakfast, dinner, lunch, or no");
+                    String food = scanner.next();
+                    travelingCertificate.sortingByFood(food);
+                    break;
+                    
+                case 8:
+                
+                    System.out.println("Enter amount of days:");
+                    int amountOfDays = scanner.nextInt();
+                    travelingCertificate.sortingByAmountOfDays(amountOfDays);
+                    break;
+                    
+            }
+        }
+    }
+}
