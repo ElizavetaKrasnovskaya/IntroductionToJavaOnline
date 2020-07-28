@@ -1,0 +1,44 @@
+package by.jonline.method2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+	      Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter a positive integer: ");
+        int n = console.nextInt();
+        
+        formingArray(n);
+        
+    }
+
+    public static void formingArray(int n) {
+    
+        int size=0;
+        int divider = 1;
+        
+        while (divider <= n){
+        
+            divider*=10;
+            size++;
+            
+        }
+        
+        divider/=10;
+        
+        int[] array = new int[size];
+        
+        for(int i=0; i<size; i++){
+        
+            array[i] = n/divider;
+            n-=divider*array[i];
+            
+            System.out.print(array[i] + "\t");
+            divider /=10;
+            
+        }
+    }
+}
