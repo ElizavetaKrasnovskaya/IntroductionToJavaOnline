@@ -1,0 +1,167 @@
+package model;
+
+public class Cave {
+
+    private Treasure[] treasures = new Treasure[100];
+    private Treasure[] crowns = new Treasure[30];
+    private Treasure[] rings = new Treasure[30];
+    private Treasure[] coins = new Treasure[40];
+
+    public Cave(){
+
+        for(int i=0; i<30; i++){
+        
+            crowns[i] = new Crown();
+            
+        }
+
+        for(int i=0; i<30; i++){
+        
+            rings[i] = new Ring();
+            
+        }
+
+        for(int i=0; i<40; i++){
+        
+            coins[i] = new Coins();
+            
+        }
+
+        for(int i=0; i<100; i++){
+        
+            if(i<30) {
+            
+                treasures[i] = crowns[i];
+                
+            }
+            
+            if (i>29 & i<60){
+            
+                treasures[i] = rings[i-30];
+                
+            }
+            
+            if(i>59){
+            
+                treasures[i] = coins[i-60];
+                
+            }
+        }
+    }
+
+    public void print(){
+    
+        for(int i=0; i<100; i++){
+        
+            System.out.println(treasures[i].print());
+            
+        }
+    }
+
+    public void findingMaxValue(){
+    
+        int max = 0;
+        String maxName = "";
+        
+        for(int i=0; i<100; i++){
+        
+            for(int k=0; k<99; k++){
+            
+                if(max<treasures[k].getCost()){
+                
+                    max = treasures[k].getCost();
+                    maxName = treasures[k].getName();
+                    
+                }
+            }
+        }
+
+        System.out.println(maxName + "\t" + max);
+        
+    }
+
+    public void treasuresForSpecifiedAmount(int amount){
+
+        int amountOfCrown = (int)(Math.random()*3);
+        int amountOfRing = (int)(Math.random()*3);
+        int amountOfCoins = (int)(Math.random()*3);
+
+        int costOfCrown = crowns[0].getCost() * amountOfCrown;
+        int costOfRing = rings[0].getCost() * amountOfRing;
+        int costOfCoins = coins[0].getCost() * amountOfCoins;
+
+        while (true){
+        
+            if(amountOfCoins<0){
+            
+                amountOfCoins = 0;
+                costOfCoins = coins[0].getCost() * amountOfCoins;
+                
+            }
+            
+            if(amountOfRing<0){
+            
+                amountOfRing = 0;
+                costOfRing = rings[0].getCost() * amountOfRing;
+                
+            }
+            
+            if(amountOfCrown<0){
+            
+                amountOfCrown = 0;
+                costOfCrown = crowns[0].getCost() * amountOfCrown;
+                
+            }
+            
+            if((costOfCoins+costOfCrown+costOfRing) == amount){
+            
+                System.out.println(amountOfCoins + "\t" + coins[0].getName() + "\t" + coins[0].getCost());
+                System.out.println(amountOfCrown + "\t" + crowns[0].getName() + "\t" + crowns[0].getCost());
+                System.out.println(amountOfRing + "\t" + rings[0].getName() + "\t" + rings[0].getCost());
+                break;
+                
+            }
+            if((costOfCoins+costOfCrown+costOfRing) > amount){
+            
+                amountOfCoins--;
+                costOfCoins = coins[0].getCost() * amountOfCoins;
+                
+            }
+            
+            if((costOfCoins+costOfCrown+costOfRing) > amount){
+            
+                amountOfCrown--;
+                costOfCrown = crowns[0].getCost() * amountOfCrown;
+                
+            }
+            
+            if((costOfCoins+costOfCrown+costOfRing) > amount){
+            
+                amountOfRing--;
+                costOfRing = rings[0].getCost() * amountOfRing;
+                
+            }
+            
+            if((costOfCoins+costOfCrown+costOfRing) < amount){
+            
+                amountOfRing++;
+                costOfRing = rings[0].getCost() * amountOfRing;
+                
+            }
+            
+            if((costOfCoins+costOfCrown+costOfRing) < amount){
+            
+                amountOfCoins++;
+                costOfCoins = coins[0].getCost() * amountOfCoins;
+                
+            }
+            
+            if((costOfCoins+costOfCrown+costOfRing) < amount){
+            
+                amountOfCrown++;
+                costOfCrown = crowns[0].getCost() * amountOfCrown;
+                
+            }
+        }
+    }
+}
