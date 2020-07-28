@@ -1,0 +1,56 @@
+package by.jonline.class8.main;
+
+import by.jonline.class8.arrayofcustomers.ArrayOfCustomers;
+import by.jonline.class8.customer.Customer;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+
+        ArrayOfCustomers customers = new ArrayOfCustomers(2);
+        
+        while(true){
+        
+            System.out.println("Enter 1, 2, 3 or 4");
+            System.out.println("1 - add customers");
+            System.out.println("2 - sorting customers by alphabet");
+            System.out.println("3 - sorting customers by credit card");
+            System.out.println("4 - exit");
+            
+            int choice = console.nextInt();
+            
+            if(choice == 4)
+                break;
+                
+            switch(choice){
+            
+                case 1:
+                
+                    customers.fillingArray(Customer.getCustomer(console));
+                    break;
+                    
+                case 2:
+                
+                    customers.sortByName();
+                    customers.print();
+                    break;
+                    
+                case 3:
+                
+                    System.out.println("From: ");
+                    String from = console.next();
+                    
+                    System.out.println("To: ");
+                    String to = console.next();
+                    
+                    customers.printIfCardIn(from, to);
+                    break;
+                    
+            }
+        }
+    }
+}
