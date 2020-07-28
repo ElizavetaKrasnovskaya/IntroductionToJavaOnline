@@ -1,0 +1,40 @@
+package by.jonline.task4.port;
+
+abstract class Ship extends Thread {
+
+    public static class ShipDownload extends Ship{
+    
+        private final PortDataBase port;
+        private int cargo;
+
+        public ShipDownload(PortDataBase port, int cargo){
+        
+            this.port = port;
+            this.cargo = cargo;
+            
+        }
+
+        public void run(){
+        
+            this.port.add(this.cargo);
+            
+        }
+    }
+
+    public static class ShipUpload extends Ship{
+    
+        private final PortDataBase port;
+
+        public ShipUpload(PortDataBase port){
+        
+            this.port = port;
+            
+        }
+
+        public void run(){
+        
+            this.port.del();
+            
+        }
+    }
+}
