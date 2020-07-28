@@ -1,0 +1,34 @@
+package by.jonline.string10.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter some sentences: ");
+        String line = console.nextLine();
+        
+        System.out.println("Amount of sentences is " + counterOfSentences(line));
+        
+    }
+
+    public static int counterOfSentences(String line) {
+    
+        int counter = 0;
+        
+        for(int i=0; i<line.length(); i++){
+        
+            if(line.charAt(i) == '.' | line.charAt(i) == '!' | line.charAt(i) == '?'){
+            
+                counter++;
+                
+            }
+        }
+        
+        return counter;
+        
+    }
+}
