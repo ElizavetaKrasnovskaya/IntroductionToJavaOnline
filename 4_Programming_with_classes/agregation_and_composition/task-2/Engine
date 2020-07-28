@@ -1,0 +1,37 @@
+package by.jonline.agregation2.engine;
+
+import java.util.Scanner;
+
+public class Engine {
+
+    private int number;
+    private int power;
+
+    public Engine(int number_, int power_){
+    
+        number = number_;
+        power = power_;
+        
+    }
+
+    public String toString(){
+    
+        String line = "Engine " + number + ", power " + power;
+        return line;
+        
+    }
+
+    public static Engine getEngine(Scanner console){
+    
+        Engine engine = new Engine(0,0);
+
+        System.out.print("Enter number of engine: ");
+        engine.number = console.nextInt();
+
+        System.out.print("Enter power of engine: ");
+        engine.power = console.nextInt();
+
+        return engine;
+        
+    }
+}
