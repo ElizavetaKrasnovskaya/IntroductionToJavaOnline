@@ -1,0 +1,47 @@
+package by.jonline.agregation2.wheel;
+
+import java.util.Scanner;
+
+public class Wheel {
+
+    private int diameter;
+    private String type;
+    private String brand;
+
+    public Wheel(String brand_, int diameter_, String type_){
+    
+        brand = brand_;
+        diameter = diameter_;
+        type = type_;
+        
+    }
+
+    public String toString(){
+    
+        String line = brand + " " + diameter + " " + type;
+        return line;
+        
+    }
+
+    public static Wheel getWheel(Scanner console){
+    
+        Wheel wheel = new Wheel("",0,"");
+        System.out.print("Enter brand of wheel: ");
+        wheel.brand = console.next();
+        
+        System.out.print("Enter diameter of wheel: ");
+        wheel.diameter = console.nextInt();
+        
+        System.out.print("Enter type of wheel: ");
+        wheel.type = console.next();
+        
+        return wheel;
+        
+    }
+
+    public int getDiameter(){
+    
+        return diameter;
+        
+    }
+}
