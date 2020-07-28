@@ -1,0 +1,27 @@
+package by.jonline.agregation3.district;
+
+import by.jonline.agregation3.city.City;
+
+public class District {
+
+    private String districtName;
+    private City[] cities;
+
+    public District(String districtName_){
+    
+        districtName = districtName_;
+        
+    }
+
+    public City[] getCities(){
+    
+        return cities;
+        
+    }
+
+    public void setCities(City[] cities_){
+    
+        cities = cities_;
+        
+    }
+}
