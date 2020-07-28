@@ -1,0 +1,11 @@
+package controller;
+
+import java.io.File;
+
+public class User extends Role {
+
+    private String name;
+    private File directory = new File("C:/Users/User/Desktop");
+    private File file = new File("C:/Users/User/Desktop/library/new.txt");
+
+}
