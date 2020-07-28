@@ -1,0 +1,26 @@
+package model;
+
+public class Ring extends Treasure {
+
+    private String name;
+    private int cost;
+
+    public Ring(){
+    
+        name = "ring";
+        cost = 80;
+        
+    }
+
+    public int getCost() {
+    
+        return cost;
+        
+    }
+
+    public String getName() {
+    
+        return name;
+        
+    }
+}
