@@ -1,0 +1,44 @@
+package by.jonline.oop3.main;
+
+import by.jonline.oop3.date.Date;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner(System.in);
+        Date date = new Date();
+
+        while(true){
+        
+            System.out.println("Enter 1, 2, or 3");
+            System.out.println("1 - add holidays or weekend in file");
+            System.out.println("2 - print dates in file");
+            System.out.println("3 - exit");
+
+            int choice = scanner.nextInt();
+            
+            if(choice == 3){
+            
+                break;
+                
+            }
+
+            switch (choice){
+            
+                case 1:
+                
+                    date.setHolidays();
+                    date.writer();
+                    break;
+                    
+                case 2:
+                
+                    date.reader();
+                    
+            }
+        }
+    }
+}
