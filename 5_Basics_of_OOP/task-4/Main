@@ -1,0 +1,25 @@
+package view;
+
+import controller.SwitchCase;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            System.out.println("Enter 1, 2 ,3 or 4");
+            System.out.println("1 - information about treasures");
+            System.out.println("2 - print most expensive cave");
+            System.out.println("3 - print treasures for a certain amount");
+            System.out.println("4 - exit");
+            int choice = scanner.nextInt();
+            if(choice==4){
+                break;
+            }
+            SwitchCase switchCase = new SwitchCase(choice);
+            switchCase.cases();
+        }
+    }
+}
