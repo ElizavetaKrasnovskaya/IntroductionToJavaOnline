@@ -1,0 +1,59 @@
+package by.jonline.class9.main;
+
+import by.jonline.class9.arrayofbooks.ArrayOfBooks;
+import by.jonline.class9.book.Book;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        ArrayOfBooks books = new ArrayOfBooks(2);
+        
+        while(true){
+        
+            System.out.println("Enter 1, 2, 3, 4 or 5 ");
+            System.out.println("1 - add book");
+            System.out.println("2 - print a list of books by a given author");
+            System.out.println("3 - print a list of books published by a given publishing house");
+            System.out.println("4 - print a list of books released after a give year");
+            System.out.println("5 - exit");
+            
+            int choice = console.nextInt();
+            
+            if(choice == 5)
+                break;
+                
+            switch (choice){
+            
+                case 1:
+                
+                    books.fillingArray(Book.getBook(console));
+                    break;
+                    
+                case 2:
+                
+                    System.out.println("Enter author: ");
+                    String author = console.next();
+                    books.printIfAuthorMatch(author);
+                    break;
+                    
+                case 3:
+                
+                    System.out.println("Enter publishing house: ");
+                    String publishingHouse = console.next();
+                    books.printIfPublishingHouseMatch(publishingHouse);
+                    break;
+                    
+                case 4:
+                
+                    System.out.println("Enter year: ");
+                    String year = console.next();
+                    books.printIfYearBigger(year);
+                    
+            }
+        }
+    }
+}
