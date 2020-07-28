@@ -1,0 +1,48 @@
+package by.jonline.chararrray2.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        System.out.println(replacementOfWords(line));
+        
+    }
+
+    public static StringBuilder replacementOfWords(String line) {
+    
+        char[] array = line.toCharArray();
+        
+        StringBuilder newLine = new StringBuilder();
+        String letter = "letter";
+        
+        for(int i=0; i<array.length; i++){
+        
+            try {
+            
+                if (array[i] == 'w' & array[i + 1] == 'o' & array[i + 2] == 'r' & array[i + 3] == 'd') {
+                
+                    newLine.append(letter);
+                    
+                } else {
+                
+                    newLine.append(array[i]);
+                    
+                }
+            }catch (Exception e){
+            
+                e.printStackTrace();
+                
+            }
+        }
+        
+        return newLine;
+        
+    }
+}
