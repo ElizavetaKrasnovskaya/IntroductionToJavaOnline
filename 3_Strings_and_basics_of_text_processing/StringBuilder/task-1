@@ -1,0 +1,44 @@
+package by.jonline.string1.main;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        System.out.println("Enter line: ");
+        String line = console.nextLine();
+        
+        System.out.println("The largest number of consecutive spaces is " + findingMaxAmountOfSpaces(line));
+        
+    }
+
+    public static int findingMaxAmountOfSpaces(String line) {
+    
+        int counter = 0;
+        int maxAmount = 0;
+        
+        for(int i=0; i<line.length(); i++){
+        
+            while(line.charAt(i) == ' '){
+            
+                counter++;
+                i++;
+                
+            }
+            if(counter>maxAmount){
+            
+                maxAmount = counter;
+                
+            }
+            
+            counter =0;
+            
+        }
+        
+        return maxAmount;
+    
+    }
+}
