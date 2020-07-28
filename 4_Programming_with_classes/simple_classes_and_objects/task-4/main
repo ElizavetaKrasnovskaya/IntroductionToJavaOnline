@@ -1,0 +1,103 @@
+package by.jonline.class4.main;
+
+import by.jonline.class4.train.Train;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+    
+        Scanner console = new Scanner(System.in);
+        
+        int amountOfTrains = 5;
+        
+        Train[] trains = new Train[amountOfTrains];
+        
+        trains[0] = new Train("Grodno", 5,"10:30");
+        trains[1] = new Train("Minsk", 10,"17:40");
+        trains[2] = new Train("Vitebsk", 4,"11:05");
+        trains[3] = new Train("Brest", 3,"9:00");
+        trains[4] = new Train("Minsk", 2,"19:30");
+
+        while(true){
+        
+            System.out.println("Enter 1, 2, 3, 4 or 5");
+            System.out.println("1 - sort trains by number");
+            System.out.println("2 - information about train by number");
+            System.out.println("3 - sort by destination");
+            System.out.println("4 - information about all trains");
+            System.out.println("5 - exit");
+
+            int choice = console.nextInt();
+            if(choice == 5){
+            
+                break;
+                
+            }
+            
+            if(choice<1 | choice>5){
+            
+                System.out.println("Enter 1, 2, 3, 4 or 5");
+                choice = console.nextInt();
+                
+            }
+
+            switch (choice){
+            
+                case 1:
+                
+                    Arrays.sort(trains, new Train.ComparatorByNumber());
+                    
+                    for(int i=0; i<amountOfTrains; i++){
+                    
+                        trains[i].print();
+                        
+                    }
+                    
+                    break;
+                    
+                case 2:
+                
+                    System.out.println("Enter index of train");
+                    int index = console.nextInt();
+                    
+                    if(index<0 | index>5){
+                    
+                        System.out.println("Error");
+                        
+                    }else{
+                    
+                        trains[index].print();
+                        
+                    }
+                    
+                    break;
+                    
+                case 3:
+                
+                    Arrays.sort(trains, new Train.ComparatorByDestinationAndTime());
+                    
+                    for(int i=0; i<amountOfTrains; i++){
+                    
+                        trains[i].print();
+                        
+                    }
+                    
+                    break;
+                    
+                case 4:
+                
+                    for(int i=0; i<amountOfTrains; i++){
+                    
+                        trains[i].print();
+                        
+                    }
+                    
+                    break;
+                    
+            }
+        }
+    }
+}
