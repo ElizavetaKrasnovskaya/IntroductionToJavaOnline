@@ -1,0 +1,118 @@
+package by.jonline.agregation2.car;
+
+import by.jonline.agregation2.engine.Engine;
+import by.jonline.agregation2.wheel.Wheel;
+
+import java.util.Scanner;
+
+public class Car {
+
+    private Wheel[] wheels;
+    private Engine engine;
+    private String brand;
+    private double consumption;
+    private double fuelLevel;
+
+    public Car(String brand_, double consumption_, Engine engine_,
+               Wheel[] wheels_, double fuelLevel_){
+               
+        brand = brand_;
+        consumption = consumption_;
+        engine = engine_;
+        wheels = wheels_;
+        fuelLevel = fuelLevel_;
+        
+    }
+
+    public String toString(){
+    
+        String line = brand + " " + consumption + " L/100km " + fuelLevel + " ";
+        
+        for(int i=0; i<4; i++){
+        
+            line += wheels[i].toString() + " ";
+            
+        }
+        
+        return line;
+    }
+
+    public static Car getCar(Scanner console){
+    
+        Car car = new Car("", 0, new Engine(0,0),
+                new Wheel[4], 0);
+
+        System.out.print("Enter brand of car: ");
+        car.brand = console.next();
+        
+        System.out.print("Enter consumption on 100 km: ");
+        car.consumption = console.nextDouble();
+        
+        System.out.print("Enter current fuel level: ");
+        car.fuelLevel = console.nextDouble();
+        
+        car.engine = Engine.getEngine(console);
+        
+        System.out.println("Enter information about wheels: ");
+        
+        for(int i=0; i<4; i++){
+        
+            System.out.println("wheel " + (i+1));
+            car.wheels[i] = Wheel.getWheel(console);
+            
+        }
+        
+        return car;
+        
+    }
+
+    public void move(){
+    
+        if(fuelLevel <=0){
+        
+            System.out.println("No fuel, you can't move");
+            
+        }
+        
+        for(int i =0; i<3; i++){
+        
+            if(wheels[i].getDiameter()!=wheels[i+1].getDiameter()){
+            
+                System.out.println("Wheels have different diameter, you can't move");
+                
+            }
+        }
+
+        double distance = fuelLevel/consumption;
+        System.out.println("Car drove " + distance*100 + " km");
+        fuelLevel = 0;
+    }
+
+    public void addFuel(double value){
+    
+        fuelLevel += value;
+        
+    }
+
+    public void changeWheel(Scanner console){
+    
+        System.out.println("Enter number of wheels 1-4: ");
+        
+        int number;
+        
+        while(true){
+        
+            number = console.nextInt();
+            
+            if(number>4 | number<1){
+            
+                break;
+                
+            }
+        }
+        
+        wheels[number-1] = Wheel.getWheel(console);
+        
+    }
+
+}
