@@ -2,19 +2,29 @@ package by.jonline.basics1.main;
 import java.util.Scanner;
 
 // Найдите значение функции z =((a-3)*b/2)+c
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Function: z =((a-3)*b/2)+c");
-        System.out.println("Enter a ");
+    
         Scanner console = new Scanner(System.in);
+        
+        System.out.println("Function: z =((a-3)*b/2)+c");
+        
+        System.out.println("Enter a ");
         int a = console.nextInt();
+        
         System.out.println("Enter b ");
         int b = console.nextInt();
+        
         System.out.println("Enter c ");
         int c = console.nextInt();
+        
         int z;
+        
         z = ((a-3)*b/2)+c;
+        
         System.out.println("z = " + z);
+        
     }
 }
