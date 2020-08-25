@@ -25,6 +25,6 @@ public class Main {
         z = ((a-3)*b/2)+c;
         
         System.out.println("z = " + z);
-        
+       
     }
 }
