@@ -1,0 +1,19 @@
+package model;
+
+public class Packaging implements Sweets{
+
+    private final String name = "Packaging";
+    private final double price = 2;
+
+    public String getName(){
+    
+        return name;
+        
+    }
+
+    public double getPrice(){
+    
+        return price;
+        
+    }
+}
