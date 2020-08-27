@@ -1,0 +1,26 @@
+package model;
+
+public class Packaging implements Flower {
+
+    private final String name = "Packaging";
+    private final int price = 2;
+    private final Color color = Color.White;
+
+    public String getName(){
+    
+        return name;
+        
+    }
+
+    public int getPrice(){
+    
+        return price;
+        
+    }
+
+    public Color getColor(){
+    
+        return color;
+        
+    }
+}
