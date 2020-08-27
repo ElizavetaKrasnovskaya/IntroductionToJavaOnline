@@ -1,0 +1,27 @@
+package model;
+
+public class PaperBook extends Book {
+
+    private String name;
+    private String author;
+    private String annotation;
+    private String yearOfPublishing;
+    private final static String type = "paper book";
+
+    public PaperBook(String name, String author, String yearOfPublishing, String annotation){
+    
+        this.name = name;
+        this.author = author;
+        this.yearOfPublishing = yearOfPublishing;
+        this.annotation = annotation;
+        
+    }
+
+    public String toString(){
+    
+        String line = name + " " + author + " " + type + " " + yearOfPublishing + " " + annotation;
+        
+        return line;
+        
+    }
+}
