@@ -1,0 +1,8 @@
+package model;
+
+public interface Sweets {
+
+    String getName();
+    double getPrice();
+    
+}
