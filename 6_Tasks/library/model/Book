@@ -1,0 +1,25 @@
+package model;
+
+public class Book {
+
+    private String name;
+    private String author;
+    private String annotation;
+    private String yearOfPublishing;
+    private String type;
+
+    public Book(){
+    
+        name = "";
+        author = "";
+        yearOfPublishing = "";
+        annotation = "";
+        
+    }
+
+    public Book(String name){
+    
+        this.name = name;
+        
+    }
+}
