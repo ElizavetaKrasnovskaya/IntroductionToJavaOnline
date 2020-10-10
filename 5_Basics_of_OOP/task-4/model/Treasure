@@ -24,7 +24,7 @@ public class Treasure {
         
     }
 
-    public String print(){
+    public String toString(){
     
         String line = "";
         line += getName() + "\t" + getCost();
